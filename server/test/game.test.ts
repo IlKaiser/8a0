@@ -1,0 +1,116 @@
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import type { Position } from '@otto/shared';
+import { autoPick } from '../src/draft.js';
+import type { Squad } from '../src/data.js';
+import { createRoom, joinRoom } from '../src/rooms.js';
+import * as game from '../src/game.js';
+
+function testSquads(): Squad[] {
+  const make = (year: number, country: string): Squad => {
+    const spec: Array<[Position, number]> = [['GK', 3], ['DF', 7], ['MF', 6], ['FW', 4]];
+    const players = spec.flatMap(([position, n]) =>
+      Array.from({ length: n }, (_, i) => ({
+        id: `${year}-${country}-${position}${i}`,
+        name: `${country} ${position}${i}`,
+        position, rating: 70 + ((i * 7) % 25), year, country,
+      })),
+    );
+    return { year, country, players };
+  };
+  return [make(1970, 'AAA'), make(1986, 'BBB'), make(2010, 'CCC'), make(2022, 'DDD')];
+}
+
+const depsWith = (over: Partial<game.GameDeps> = {}): game.GameDeps =>
+  ({ squads: testSquads(), broadcast: vi.fn(), revealMs: 5, ...over });
+
+beforeEach(() => vi.useFakeTimers());
+afterEach(() => vi.useRealTimers());
+
+function setupDraft(deps: game.GameDeps) {
+  const { room, seat: host } = createRoom('ann', 123);
+  const guest = joinRoom(room, 'bob');
+  game.startGame(room, host.id);
+  game.chooseFormation(room, host.id, '4-4-2', deps);
+  game.chooseFormation(room, guest.id, '4-3-3', deps);
+  return { room, host, guest };
+}
+
+function draftToCompletion(room: ReturnType<typeof createRoom>['room'], deps: game.GameDeps): void {
+  let guard = 0;
+  while (room.phase === 'draft' && guard++ < 30) {
+    const d = room.draft!;
+    const seatId = d.order[d.pickNumber];
+    const seat = room.seats.find((s) => s.id === seatId)!;
+    const pick = autoPick(d.roll!.players, seat.slots)!;
+    game.handlePick(room, seatId, pick.playerId, pick.slotIndex, deps);
+  }
+}
+
+describe('game flow', () => {
+  it('runs lobby -> formation -> draft -> tournament -> results for 2 players', () => {
+    const deps = depsWith();
+    const { room } = setupDraft(deps);
+    expect(room.phase).toBe('draft');
+    expect(room.draft!.order).toHaveLength(22);
+
+    draftToCompletion(room, deps);
+    expect(room.phase).toBe('tournament');
+    expect(room.tournament!.matches).toHaveLength(1); // 2 players -> final only
+    expect(room.seats.every((s) => s.slots.every((sl) => sl.player !== null))).toBe(true);
+
+    vi.advanceTimersByTime(100);
+    expect(room.phase).toBe('results');
+    expect(room.tournament!.championSeatId).toBeTruthy();
+  });
+
+  it('rejects picks out of turn', () => {
+    const deps = depsWith();
+    const { room } = setupDraft(deps);
+    const d = room.draft!;
+    const wrongSeat = room.seats.find((s) => s.id !== d.order[0])!;
+    const anyPlayer = d.roll!.players[0];
+    expect(() =>
+      game.handlePick(room, wrongSeat.id, anyPlayer.id, 0, deps),
+    ).toThrow(/turn/);
+  });
+
+  it('wildcard rerolls the squad and decrements the counter', () => {
+    const deps = depsWith();
+    const { room } = setupDraft(deps);
+    const d = room.draft!;
+    const seat = room.seats.find((s) => s.id === d.order[0])!;
+    const before = d.roll;
+    game.handleWildcard(room, seat.id, deps);
+    expect(seat.wildcardsLeft).toBe(2);
+    expect(d.pickNumber).toBe(0); // same turn
+    expect(d.roll).not.toBe(before);
+    seat.wildcardsLeft = 0;
+    expect(() => game.handleWildcard(room, seat.id, deps)).toThrow(/wildcard/i);
+  });
+
+  it('turn timer auto-picks for an absent player', () => {
+    const deps = depsWith();
+    const fresh = createRoom('carl', 9);
+    const dana = joinRoom(fresh.room, 'dana');
+    game.setOptions(fresh.room, fresh.seat.id, { turnTimerSec: 30 });
+    game.startGame(fresh.room, fresh.seat.id);
+    game.chooseFormation(fresh.room, fresh.seat.id, '4-4-2', deps);
+    game.chooseFormation(fresh.room, dana.id, '4-4-2', deps);
+    expect(fresh.room.draft!.pickNumber).toBe(0);
+    vi.advanceTimersByTime(30_000);
+    expect(fresh.room.draft!.pickNumber).toBe(1);
+    expect(fresh.room.draft!.log[0].auto).toBe(true);
+  });
+
+  it('rematch resets to formation phase with full wildcards and empty boards', () => {
+    const deps = depsWith();
+    const { room, host } = setupDraft(deps);
+    draftToCompletion(room, deps);
+    vi.advanceTimersByTime(100);
+    expect(room.phase).toBe('results');
+    game.rematch(room, host.id, deps);
+    expect(room.phase).toBe('formation');
+    expect(room.seats.every((s) => s.formation === null && s.slots.length === 0)).toBe(true);
+    expect(room.seats.every((s) => s.wildcardsLeft === 3)).toBe(true);
+  });
+});
