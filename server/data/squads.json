@@ -1,0 +1,5479 @@
+{
+ "editions": [
+  {
+   "year": 1970,
+   "teams": [
+    {
+     "country": "Brazil",
+     "players": [
+      {
+       "name": "Félix",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Ado",
+       "position": "GK",
+       "rating": 66
+      },
+      {
+       "name": "Carlos Alberto",
+       "position": "DF",
+       "rating": 93
+      },
+      {
+       "name": "Brito",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Piazza",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Everaldo",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Zé Maria",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Marco Antônio",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Fontana",
+       "position": "DF",
+       "rating": 70
+      },
+      {
+       "name": "Gérson",
+       "position": "MF",
+       "rating": 92
+      },
+      {
+       "name": "Clodoaldo",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Rivellino",
+       "position": "MF",
+       "rating": 94
+      },
+      {
+       "name": "Paulo Cézar Caju",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Edu",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Pelé",
+       "position": "FW",
+       "rating": 99
+      },
+      {
+       "name": "Jairzinho",
+       "position": "FW",
+       "rating": 95
+      },
+      {
+       "name": "Tostão",
+       "position": "FW",
+       "rating": 91
+      },
+      {
+       "name": "Roberto Miranda",
+       "position": "FW",
+       "rating": 70
+      },
+      {
+       "name": "Dadá Maravilha",
+       "position": "FW",
+       "rating": 71
+      }
+     ]
+    },
+    {
+     "country": "Italy",
+     "players": [
+      {
+       "name": "Enrico Albertosi",
+       "position": "GK",
+       "rating": 84
+      },
+      {
+       "name": "Dino Zoff",
+       "position": "GK",
+       "rating": 85
+      },
+      {
+       "name": "Giacinto Facchetti",
+       "position": "DF",
+       "rating": 90
+      },
+      {
+       "name": "Tarcisio Burgnich",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Roberto Rosato",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Pierluigi Cera",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Comunardo Niccolai",
+       "position": "DF",
+       "rating": 72
+      },
+      {
+       "name": "Fabrizio Poletti",
+       "position": "DF",
+       "rating": 70
+      },
+      {
+       "name": "Sandro Mazzola",
+       "position": "MF",
+       "rating": 91
+      },
+      {
+       "name": "Gianni Rivera",
+       "position": "MF",
+       "rating": 92
+      },
+      {
+       "name": "Giancarlo De Sisti",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Angelo Domenghini",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Mario Bertini",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Antonio Juliano",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Gigi Riva",
+       "position": "FW",
+       "rating": 93
+      },
+      {
+       "name": "Roberto Boninsegna",
+       "position": "FW",
+       "rating": 87
+      },
+      {
+       "name": "Pierino Prati",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Sergio Gori",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    },
+    {
+     "country": "West Germany",
+     "players": [
+      {
+       "name": "Sepp Maier",
+       "position": "GK",
+       "rating": 87
+      },
+      {
+       "name": "Horst Wolter",
+       "position": "GK",
+       "rating": 68
+      },
+      {
+       "name": "Franz Beckenbauer",
+       "position": "DF",
+       "rating": 96
+      },
+      {
+       "name": "Berti Vogts",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Karl-Heinz Schnellinger",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Horst-Dieter Höttges",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Willi Schulz",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Klaus Fichtel",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Wolfgang Overath",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Helmut Haller",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Reinhard Libuda",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Jürgen Grabowski",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Bernd Patzke",
+       "position": "MF",
+       "rating": 68
+      },
+      {
+       "name": "Gerd Müller",
+       "position": "FW",
+       "rating": 96
+      },
+      {
+       "name": "Uwe Seeler",
+       "position": "FW",
+       "rating": 89
+      },
+      {
+       "name": "Hannes Löhr",
+       "position": "FW",
+       "rating": 76
+      }
+     ]
+    },
+    {
+     "country": "England",
+     "players": [
+      {
+       "name": "Gordon Banks",
+       "position": "GK",
+       "rating": 93
+      },
+      {
+       "name": "Peter Bonetti",
+       "position": "GK",
+       "rating": 79
+      },
+      {
+       "name": "Bobby Moore",
+       "position": "DF",
+       "rating": 94
+      },
+      {
+       "name": "Terry Cooper",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Brian Labone",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Keith Newton",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Tommy Wright",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Emlyn Hughes",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Bobby Charlton",
+       "position": "MF",
+       "rating": 91
+      },
+      {
+       "name": "Alan Ball",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Martin Peters",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Alan Mullery",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Nobby Stiles",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Colin Bell",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Geoff Hurst",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Francis Lee",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Peter Osgood",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Jeff Astle",
+       "position": "FW",
+       "rating": 76
+      }
+     ]
+    },
+    {
+     "country": "Uruguay",
+     "players": [
+      {
+       "name": "Ladislao Mazurkiewicz",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Atilio Ancheta",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Roberto Matosas",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Juan Mujica",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Luis Ubiña",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Omar Caetano",
+       "position": "DF",
+       "rating": 72
+      },
+      {
+       "name": "Pedro Rocha",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Julio Montero Castillo",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Ildo Maneiro",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Víctor Espárrago",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Julio César Cortés",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Luis Cubilla",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Julio Morales",
+       "position": "FW",
+       "rating": 74
+      },
+      {
+       "name": "Dagoberto Fontes",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 1974,
+   "teams": [
+    {
+     "country": "West Germany",
+     "players": [
+      {
+       "name": "Sepp Maier",
+       "position": "GK",
+       "rating": 90
+      },
+      {
+       "name": "Norbert Nigbur",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Franz Beckenbauer",
+       "position": "DF",
+       "rating": 97
+      },
+      {
+       "name": "Berti Vogts",
+       "position": "DF",
+       "rating": 87
+      },
+      {
+       "name": "Georg Schwarzenbeck",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Paul Breitner",
+       "position": "DF",
+       "rating": 90
+      },
+      {
+       "name": "Horst-Dieter Höttges",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Wolfgang Overath",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Rainer Bonhof",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Uli Hoeneß",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Herbert Wimmer",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Heinz Flohe",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Günter Netzer",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Gerd Müller",
+       "position": "FW",
+       "rating": 96
+      },
+      {
+       "name": "Jürgen Grabowski",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Bernd Hölzenbein",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Dieter Herzog",
+       "position": "FW",
+       "rating": 73
+      }
+     ]
+    },
+    {
+     "country": "Netherlands",
+     "players": [
+      {
+       "name": "Jan Jongbloed",
+       "position": "GK",
+       "rating": 76
+      },
+      {
+       "name": "Piet Schrijvers",
+       "position": "GK",
+       "rating": 74
+      },
+      {
+       "name": "Ruud Krol",
+       "position": "DF",
+       "rating": 89
+      },
+      {
+       "name": "Wim Suurbier",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Wim Rijsbergen",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Rinus Israël",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Arie Haan",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Johan Neeskens",
+       "position": "MF",
+       "rating": 91
+      },
+      {
+       "name": "Wim van Hanegem",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Wim Jansen",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Theo de Jong",
+       "position": "MF",
+       "rating": 72
+      },
+      {
+       "name": "René van de Kerkhof",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Johan Cruyff",
+       "position": "FW",
+       "rating": 98
+      },
+      {
+       "name": "Johnny Rep",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Rob Rensenbrink",
+       "position": "FW",
+       "rating": 87
+      },
+      {
+       "name": "Piet Keizer",
+       "position": "FW",
+       "rating": 80
+      }
+     ]
+    },
+    {
+     "country": "Poland",
+     "players": [
+      {
+       "name": "Jan Tomaszewski",
+       "position": "GK",
+       "rating": 85
+      },
+      {
+       "name": "Władysław Żmuda",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Jerzy Gorgoń",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Antoni Szymanowski",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Adam Musiał",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Mirosław Bulzacki",
+       "position": "DF",
+       "rating": 72
+      },
+      {
+       "name": "Kazimierz Deyna",
+       "position": "MF",
+       "rating": 91
+      },
+      {
+       "name": "Henryk Kasperczak",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Zygmunt Maszczyk",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Lesław Ćmikiewicz",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Grzegorz Lato",
+       "position": "FW",
+       "rating": 92
+      },
+      {
+       "name": "Robert Gadocha",
+       "position": "FW",
+       "rating": 85
+      },
+      {
+       "name": "Andrzej Szarmach",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "Jan Domarski",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Zdzisław Kapka",
+       "position": "FW",
+       "rating": 70
+      }
+     ]
+    },
+    {
+     "country": "Brazil",
+     "players": [
+      {
+       "name": "Émerson Leão",
+       "position": "GK",
+       "rating": 84
+      },
+      {
+       "name": "Waldir Peres",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Luís Pereira",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Marinho Chagas",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Zé Maria",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Piazza",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Marinho Peres",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Rivellino",
+       "position": "MF",
+       "rating": 92
+      },
+      {
+       "name": "Paulo César Carpegiani",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Ademir da Guia",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Dirceu",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Paulo César Caju",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Jairzinho",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "Edu",
+       "position": "FW",
+       "rating": 76
+      },
+      {
+       "name": "Valdomiro",
+       "position": "FW",
+       "rating": 74
+      },
+      {
+       "name": "Mirandinha",
+       "position": "FW",
+       "rating": 70
+      }
+     ]
+    },
+    {
+     "country": "Italy",
+     "players": [
+      {
+       "name": "Dino Zoff",
+       "position": "GK",
+       "rating": 90
+      },
+      {
+       "name": "Enrico Albertosi",
+       "position": "GK",
+       "rating": 82
+      },
+      {
+       "name": "Giacinto Facchetti",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Tarcisio Burgnich",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Luciano Spinosi",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Francesco Morini",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Giuseppe Sabadini",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Gianni Rivera",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Sandro Mazzola",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Fabio Capello",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Romeo Benetti",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Franco Causio",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Luciano Re Cecconi",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Gigi Riva",
+       "position": "FW",
+       "rating": 89
+      },
+      {
+       "name": "Roberto Boninsegna",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Pietro Anastasi",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Giorgio Chinaglia",
+       "position": "FW",
+       "rating": 83
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 1982,
+   "teams": [
+    {
+     "country": "Italy",
+     "players": [
+      {
+       "name": "Dino Zoff",
+       "position": "GK",
+       "rating": 92
+      },
+      {
+       "name": "Ivano Bordon",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Gaetano Scirea",
+       "position": "DF",
+       "rating": 92
+      },
+      {
+       "name": "Claudio Gentile",
+       "position": "DF",
+       "rating": 87
+      },
+      {
+       "name": "Antonio Cabrini",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Fulvio Collovati",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Giuseppe Bergomi",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Marco Tardelli",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Giancarlo Antognoni",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Bruno Conti",
+       "position": "MF",
+       "rating": 87
+      },
+      {
+       "name": "Gabriele Oriali",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Giampiero Marini",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Giuseppe Dossena",
+       "position": "MF",
+       "rating": 73
+      },
+      {
+       "name": "Paolo Rossi",
+       "position": "FW",
+       "rating": 93
+      },
+      {
+       "name": "Francesco Graziani",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Alessandro Altobelli",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Franco Causio",
+       "position": "FW",
+       "rating": 78
+      }
+     ]
+    },
+    {
+     "country": "Brazil",
+     "players": [
+      {
+       "name": "Waldir Peres",
+       "position": "GK",
+       "rating": 75
+      },
+      {
+       "name": "Leandro",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Júnior",
+       "position": "DF",
+       "rating": 88
+      },
+      {
+       "name": "Oscar",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Luizinho",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Edinho",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Edevaldo",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Sócrates",
+       "position": "MF",
+       "rating": 94
+      },
+      {
+       "name": "Falcão",
+       "position": "MF",
+       "rating": 92
+      },
+      {
+       "name": "Toninho Cerezo",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Dirceu",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Paulo Isidoro",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Batista",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Zico",
+       "position": "FW",
+       "rating": 96
+      },
+      {
+       "name": "Éder",
+       "position": "FW",
+       "rating": 87
+      },
+      {
+       "name": "Serginho",
+       "position": "FW",
+       "rating": 74
+      }
+     ]
+    },
+    {
+     "country": "West Germany",
+     "players": [
+      {
+       "name": "Harald Schumacher",
+       "position": "GK",
+       "rating": 87
+      },
+      {
+       "name": "Bernd Franke",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Karlheinz Förster",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Bernd Förster",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Manfred Kaltz",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Hans-Peter Briegel",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Uli Stielike",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Paul Breitner",
+       "position": "MF",
+       "rating": 89
+      },
+      {
+       "name": "Wolfgang Dremmler",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Pierre Littbarski",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Felix Magath",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Lothar Matthäus",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Hansi Müller",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Karl-Heinz Rummenigge",
+       "position": "FW",
+       "rating": 93
+      },
+      {
+       "name": "Klaus Fischer",
+       "position": "FW",
+       "rating": 83
+      },
+      {
+       "name": "Horst Hrubesch",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Uwe Reinders",
+       "position": "FW",
+       "rating": 73
+      }
+     ]
+    },
+    {
+     "country": "France",
+     "players": [
+      {
+       "name": "Jean-Luc Ettori",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Jean Castaneda",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Marius Trésor",
+       "position": "DF",
+       "rating": 87
+      },
+      {
+       "name": "Maxime Bossis",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Manuel Amoros",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Gérard Janvion",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Patrick Battiston",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Christian Lopez",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Michel Platini",
+       "position": "MF",
+       "rating": 95
+      },
+      {
+       "name": "Alain Giresse",
+       "position": "MF",
+       "rating": 90
+      },
+      {
+       "name": "Jean Tigana",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Bernard Genghini",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Jean-François Larios",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "René Girard",
+       "position": "MF",
+       "rating": 72
+      },
+      {
+       "name": "Dominique Rocheteau",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Didier Six",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Bernard Lacombe",
+       "position": "FW",
+       "rating": 77
+      },
+      {
+       "name": "Gérard Soler",
+       "position": "FW",
+       "rating": 76
+      },
+      {
+       "name": "Bruno Bellone",
+       "position": "FW",
+       "rating": 74
+      }
+     ]
+    },
+    {
+     "country": "Poland",
+     "players": [
+      {
+       "name": "Józef Młynarczyk",
+       "position": "GK",
+       "rating": 82
+      },
+      {
+       "name": "Jacek Kazimierski",
+       "position": "GK",
+       "rating": 70
+      },
+      {
+       "name": "Władysław Żmuda",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Stefan Majewski",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Paweł Janas",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Marek Dziuba",
+       "position": "DF",
+       "rating": 71
+      },
+      {
+       "name": "Jan Jałocha",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Zbigniew Boniek",
+       "position": "MF",
+       "rating": 92
+      },
+      {
+       "name": "Andrzej Buncol",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Waldemar Matysik",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Janusz Kupcewicz",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Andrzej Iwan",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Grzegorz Lato",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Włodzimierz Smolarek",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Andrzej Szarmach",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Włodzimierz Ciołek",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 1986,
+   "teams": [
+    {
+     "country": "Argentina",
+     "players": [
+      {
+       "name": "Nery Pumpido",
+       "position": "GK",
+       "rating": 80
+      },
+      {
+       "name": "Luis Islas",
+       "position": "GK",
+       "rating": 76
+      },
+      {
+       "name": "Oscar Ruggeri",
+       "position": "DF",
+       "rating": 87
+      },
+      {
+       "name": "José Luis Brown",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "José Luis Cuciuffo",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Julio Olarticoechea",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Oscar Garré",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Néstor Clausen",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Diego Maradona",
+       "position": "MF",
+       "rating": 99
+      },
+      {
+       "name": "Jorge Burruchaga",
+       "position": "MF",
+       "rating": 87
+      },
+      {
+       "name": "Sergio Batista",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Ricardo Giusti",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Héctor Enrique",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Claudio Borghi",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Jorge Valdano",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "Pedro Pasculli",
+       "position": "FW",
+       "rating": 76
+      },
+      {
+       "name": "Carlos Tapia",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    },
+    {
+     "country": "West Germany",
+     "players": [
+      {
+       "name": "Harald Schumacher",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Eike Immel",
+       "position": "GK",
+       "rating": 75
+      },
+      {
+       "name": "Karlheinz Förster",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Hans-Peter Briegel",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Ditmar Jakobs",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Thomas Berthold",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Andreas Brehme",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Matthias Herget",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Lothar Matthäus",
+       "position": "MF",
+       "rating": 90
+      },
+      {
+       "name": "Felix Magath",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Wolfgang Rolff",
+       "position": "MF",
+       "rating": 73
+      },
+      {
+       "name": "Norbert Eder",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Pierre Littbarski",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Karl-Heinz Rummenigge",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "Rudi Völler",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "Klaus Allofs",
+       "position": "FW",
+       "rating": 82
+      }
+     ]
+    },
+    {
+     "country": "France",
+     "players": [
+      {
+       "name": "Joël Bats",
+       "position": "GK",
+       "rating": 84
+      },
+      {
+       "name": "Albert Rust",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Patrick Battiston",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Maxime Bossis",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Manuel Amoros",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "William Ayache",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Michel Bibard",
+       "position": "DF",
+       "rating": 71
+      },
+      {
+       "name": "Michel Platini",
+       "position": "MF",
+       "rating": 95
+      },
+      {
+       "name": "Alain Giresse",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Jean Tigana",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Luis Fernández",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Jean-Marc Ferreri",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Philippe Vercruysse",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Jean-Pierre Papin",
+       "position": "FW",
+       "rating": 83
+      },
+      {
+       "name": "Dominique Rocheteau",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Yannick Stopyra",
+       "position": "FW",
+       "rating": 79
+      },
+      {
+       "name": "Bruno Bellone",
+       "position": "FW",
+       "rating": 75
+      }
+     ]
+    },
+    {
+     "country": "Brazil",
+     "players": [
+      {
+       "name": "Carlos",
+       "position": "GK",
+       "rating": 80
+      },
+      {
+       "name": "Júnior",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Branco",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Júlio César",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Edinho",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Josimar",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Sócrates",
+       "position": "MF",
+       "rating": 90
+      },
+      {
+       "name": "Zico",
+       "position": "MF",
+       "rating": 92
+      },
+      {
+       "name": "Falcão",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Alemão",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Elzo",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Careca",
+       "position": "FW",
+       "rating": 89
+      },
+      {
+       "name": "Müller",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Casagrande",
+       "position": "FW",
+       "rating": 78
+      }
+     ]
+    },
+    {
+     "country": "Denmark",
+     "players": [
+      {
+       "name": "Troels Rasmussen",
+       "position": "GK",
+       "rating": 76
+      },
+      {
+       "name": "Ole Qvist",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Morten Olsen",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Søren Busk",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Ivan Nielsen",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "John Sivebæk",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Henrik Andersen",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Michael Laudrup",
+       "position": "MF",
+       "rating": 92
+      },
+      {
+       "name": "Frank Arnesen",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Søren Lerby",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Jens Jørn Bertelsen",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Jan Mølby",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Klaus Berggreen",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Preben Elkjær",
+       "position": "FW",
+       "rating": 90
+      },
+      {
+       "name": "Jesper Olsen",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "John Eriksen",
+       "position": "FW",
+       "rating": 76
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 1990,
+   "teams": [
+    {
+     "country": "West Germany",
+     "players": [
+      {
+       "name": "Bodo Illgner",
+       "position": "GK",
+       "rating": 84
+      },
+      {
+       "name": "Raimond Aumann",
+       "position": "GK",
+       "rating": 75
+      },
+      {
+       "name": "Klaus Augenthaler",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Andreas Brehme",
+       "position": "DF",
+       "rating": 89
+      },
+      {
+       "name": "Thomas Berthold",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Guido Buchwald",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Jürgen Kohler",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Stefan Reuter",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Lothar Matthäus",
+       "position": "MF",
+       "rating": 95
+      },
+      {
+       "name": "Thomas Häßler",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Uwe Bein",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Andreas Möller",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Pierre Littbarski",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Rudi Völler",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "Jürgen Klinsmann",
+       "position": "FW",
+       "rating": 90
+      },
+      {
+       "name": "Karl-Heinz Riedle",
+       "position": "FW",
+       "rating": 80
+      }
+     ]
+    },
+    {
+     "country": "Argentina",
+     "players": [
+      {
+       "name": "Sergio Goycochea",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Nery Pumpido",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Oscar Ruggeri",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Juan Simón",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "José Serrizuela",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Roberto Sensini",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Pedro Monzón",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Diego Maradona",
+       "position": "MF",
+       "rating": 94
+      },
+      {
+       "name": "Jorge Burruchaga",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Ricardo Giusti",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "José Basualdo",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Gabriel Calderón",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Pedro Troglio",
+       "position": "MF",
+       "rating": 73
+      },
+      {
+       "name": "Claudio Caniggia",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Gustavo Dezotti",
+       "position": "FW",
+       "rating": 72
+      },
+      {
+       "name": "Abel Balbo",
+       "position": "FW",
+       "rating": 75
+      }
+     ]
+    },
+    {
+     "country": "Italy",
+     "players": [
+      {
+       "name": "Walter Zenga",
+       "position": "GK",
+       "rating": 88
+      },
+      {
+       "name": "Stefano Tacconi",
+       "position": "GK",
+       "rating": 80
+      },
+      {
+       "name": "Franco Baresi",
+       "position": "DF",
+       "rating": 94
+      },
+      {
+       "name": "Paolo Maldini",
+       "position": "DF",
+       "rating": 90
+      },
+      {
+       "name": "Giuseppe Bergomi",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Riccardo Ferri",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Luigi De Agostini",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Pietro Vierchowod",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Roberto Donadoni",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Fernando De Napoli",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Giuseppe Giannini",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Carlo Ancelotti",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Nicola Berti",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Salvatore Schillaci",
+       "position": "FW",
+       "rating": 87
+      },
+      {
+       "name": "Roberto Baggio",
+       "position": "FW",
+       "rating": 91
+      },
+      {
+       "name": "Gianluca Vialli",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Aldo Serena",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Andrea Carnevale",
+       "position": "FW",
+       "rating": 77
+      }
+     ]
+    },
+    {
+     "country": "England",
+     "players": [
+      {
+       "name": "Peter Shilton",
+       "position": "GK",
+       "rating": 88
+      },
+      {
+       "name": "Chris Woods",
+       "position": "GK",
+       "rating": 76
+      },
+      {
+       "name": "Terry Butcher",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Des Walker",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Stuart Pearce",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Paul Parker",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Mark Wright",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Gary Stevens",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Paul Gascoigne",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Bryan Robson",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Chris Waddle",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "David Platt",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Steve McMahon",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Gary Lineker",
+       "position": "FW",
+       "rating": 90
+      },
+      {
+       "name": "Peter Beardsley",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "John Barnes",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Steve Bull",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    },
+    {
+     "country": "Cameroon",
+     "players": [
+      {
+       "name": "Thomas N'Kono",
+       "position": "GK",
+       "rating": 84
+      },
+      {
+       "name": "Joseph-Antoine Bell",
+       "position": "GK",
+       "rating": 80
+      },
+      {
+       "name": "Benjamin Massing",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Emmanuel Kundé",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Stephen Tataw",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Bertin Ebwellé",
+       "position": "DF",
+       "rating": 72
+      },
+      {
+       "name": "Victor Ndip",
+       "position": "DF",
+       "rating": 71
+      },
+      {
+       "name": "Emile Mbouh",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "André Kana-Biyik",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Cyrille Makanaky",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Jean-Claude Pagal",
+       "position": "MF",
+       "rating": 72
+      },
+      {
+       "name": "Louis-Paul M'Fédé",
+       "position": "MF",
+       "rating": 71
+      },
+      {
+       "name": "Roger Milla",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "François Omam-Biyik",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Eugène Ekéké",
+       "position": "FW",
+       "rating": 73
+      },
+      {
+       "name": "Bonaventure Djonkep",
+       "position": "FW",
+       "rating": 68
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 1994,
+   "teams": [
+    {
+     "country": "Brazil",
+     "players": [
+      {
+       "name": "Cláudio Taffarel",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Zetti",
+       "position": "GK",
+       "rating": 76
+      },
+      {
+       "name": "Jorginho",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Branco",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Aldair",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Márcio Santos",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Leonardo",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Cafu",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Dunga",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Mauro Silva",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Raí",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Zinho",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Mazinho",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Romário",
+       "position": "FW",
+       "rating": 95
+      },
+      {
+       "name": "Bebeto",
+       "position": "FW",
+       "rating": 90
+      },
+      {
+       "name": "Müller",
+       "position": "FW",
+       "rating": 79
+      },
+      {
+       "name": "Ronaldo",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Viola",
+       "position": "FW",
+       "rating": 75
+      }
+     ]
+    },
+    {
+     "country": "Italy",
+     "players": [
+      {
+       "name": "Gianluca Pagliuca",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Luca Marchegiani",
+       "position": "GK",
+       "rating": 79
+      },
+      {
+       "name": "Franco Baresi",
+       "position": "DF",
+       "rating": 91
+      },
+      {
+       "name": "Paolo Maldini",
+       "position": "DF",
+       "rating": 92
+      },
+      {
+       "name": "Alessandro Costacurta",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Antonio Benarrivo",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Roberto Mussi",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Luigi Apolloni",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Demetrio Albertini",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Dino Baggio",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Roberto Donadoni",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Antonio Conte",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Nicola Berti",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Roberto Baggio",
+       "position": "FW",
+       "rating": 96
+      },
+      {
+       "name": "Giuseppe Signori",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Pierluigi Casiraghi",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Daniele Massaro",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Gianfranco Zola",
+       "position": "FW",
+       "rating": 84
+      }
+     ]
+    },
+    {
+     "country": "Bulgaria",
+     "players": [
+      {
+       "name": "Borislav Mihaylov",
+       "position": "GK",
+       "rating": 82
+      },
+      {
+       "name": "Plamen Nikolov",
+       "position": "GK",
+       "rating": 70
+      },
+      {
+       "name": "Petar Hubchev",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Trifon Ivanov",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Tsanko Tsvetanov",
+       "position": "DF",
+       "rating": 72
+      },
+      {
+       "name": "Ilian Kiriakov",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Emil Kremenliev",
+       "position": "DF",
+       "rating": 71
+      },
+      {
+       "name": "Krasimir Balakov",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Yordan Lechkov",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Zlatko Yankov",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Daniel Borimirov",
+       "position": "MF",
+       "rating": 72
+      },
+      {
+       "name": "Hristo Stoichkov",
+       "position": "FW",
+       "rating": 94
+      },
+      {
+       "name": "Emil Kostadinov",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Nasko Sirakov",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Bontcho Guentchev",
+       "position": "FW",
+       "rating": 71
+      }
+     ]
+    },
+    {
+     "country": "Sweden",
+     "players": [
+      {
+       "name": "Thomas Ravelli",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Lars Eriksson",
+       "position": "GK",
+       "rating": 74
+      },
+      {
+       "name": "Patrik Andersson",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Roger Ljung",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Pontus Kåmark",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Roland Nilsson",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Joachim Björklund",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Tomas Brolin",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Stefan Schwarz",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Jonas Thern",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Klas Ingesson",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Håkan Mild",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Anders Limpar",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Martin Dahlin",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Kennet Andersson",
+       "position": "FW",
+       "rating": 85
+      },
+      {
+       "name": "Henrik Larsson",
+       "position": "FW",
+       "rating": 80
+      }
+     ]
+    },
+    {
+     "country": "Romania",
+     "players": [
+      {
+       "name": "Bogdan Stelea",
+       "position": "GK",
+       "rating": 79
+      },
+      {
+       "name": "Florin Prunea",
+       "position": "GK",
+       "rating": 76
+      },
+      {
+       "name": "Dan Petrescu",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Miodrag Belodedici",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Daniel Prodan",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Tibor Selymes",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Gheorghe Mihali",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Gheorghe Hagi",
+       "position": "MF",
+       "rating": 93
+      },
+      {
+       "name": "Gheorghe Popescu",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Dorinel Munteanu",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Ioan Lupescu",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Ioan Sabău",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Florin Răducioiu",
+       "position": "FW",
+       "rating": 83
+      },
+      {
+       "name": "Ilie Dumitrescu",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Ion Vlădoiu",
+       "position": "FW",
+       "rating": 70
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 1998,
+   "teams": [
+    {
+     "country": "France",
+     "players": [
+      {
+       "name": "Fabien Barthez",
+       "position": "GK",
+       "rating": 88
+      },
+      {
+       "name": "Bernard Lama",
+       "position": "GK",
+       "rating": 81
+      },
+      {
+       "name": "Lilian Thuram",
+       "position": "DF",
+       "rating": 90
+      },
+      {
+       "name": "Laurent Blanc",
+       "position": "DF",
+       "rating": 89
+      },
+      {
+       "name": "Marcel Desailly",
+       "position": "DF",
+       "rating": 90
+      },
+      {
+       "name": "Bixente Lizarazu",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Frank Leboeuf",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Vincent Candela",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Zinedine Zidane",
+       "position": "MF",
+       "rating": 97
+      },
+      {
+       "name": "Didier Deschamps",
+       "position": "MF",
+       "rating": 87
+      },
+      {
+       "name": "Emmanuel Petit",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Youri Djorkaeff",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Christian Karembeu",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Alain Boghossian",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Thierry Henry",
+       "position": "FW",
+       "rating": 85
+      },
+      {
+       "name": "David Trezeguet",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Stéphane Guivarc'h",
+       "position": "FW",
+       "rating": 74
+      },
+      {
+       "name": "Christophe Dugarry",
+       "position": "FW",
+       "rating": 78
+      }
+     ]
+    },
+    {
+     "country": "Brazil",
+     "players": [
+      {
+       "name": "Cláudio Taffarel",
+       "position": "GK",
+       "rating": 85
+      },
+      {
+       "name": "Dida",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Cafu",
+       "position": "DF",
+       "rating": 89
+      },
+      {
+       "name": "Roberto Carlos",
+       "position": "DF",
+       "rating": 90
+      },
+      {
+       "name": "Aldair",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Júnior Baiano",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Zé Carlos",
+       "position": "DF",
+       "rating": 72
+      },
+      {
+       "name": "Dunga",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Rivaldo",
+       "position": "MF",
+       "rating": 93
+      },
+      {
+       "name": "Leonardo",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "César Sampaio",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Emerson",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Ronaldo",
+       "position": "FW",
+       "rating": 97
+      },
+      {
+       "name": "Bebeto",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Denílson",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Edmundo",
+       "position": "FW",
+       "rating": 80
+      }
+     ]
+    },
+    {
+     "country": "Croatia",
+     "players": [
+      {
+       "name": "Dražen Ladić",
+       "position": "GK",
+       "rating": 80
+      },
+      {
+       "name": "Marijan Mrmić",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Slaven Bilić",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Igor Štimac",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Dario Šimić",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Robert Jarni",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Zvonimir Soldo",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Zvonimir Boban",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Robert Prosinečki",
+       "position": "MF",
+       "rating": 87
+      },
+      {
+       "name": "Aljoša Asanović",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Mario Stanić",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Krunoslav Jurčić",
+       "position": "MF",
+       "rating": 73
+      },
+      {
+       "name": "Silvio Marić",
+       "position": "MF",
+       "rating": 72
+      },
+      {
+       "name": "Davor Šuker",
+       "position": "FW",
+       "rating": 92
+      },
+      {
+       "name": "Goran Vlaović",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Igor Cvitanović",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    },
+    {
+     "country": "Netherlands",
+     "players": [
+      {
+       "name": "Edwin van der Sar",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Ed de Goey",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Frank de Boer",
+       "position": "DF",
+       "rating": 87
+      },
+      {
+       "name": "Jaap Stam",
+       "position": "DF",
+       "rating": 88
+      },
+      {
+       "name": "Michael Reiziger",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Arthur Numan",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Winston Bogarde",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Edgar Davids",
+       "position": "MF",
+       "rating": 87
+      },
+      {
+       "name": "Clarence Seedorf",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Phillip Cocu",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Ronald de Boer",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Wim Jonk",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Boudewijn Zenden",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Dennis Bergkamp",
+       "position": "FW",
+       "rating": 94
+      },
+      {
+       "name": "Patrick Kluivert",
+       "position": "FW",
+       "rating": 87
+      },
+      {
+       "name": "Marc Overmars",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Jimmy Floyd Hasselbaink",
+       "position": "FW",
+       "rating": 78
+      }
+     ]
+    },
+    {
+     "country": "Argentina",
+     "players": [
+      {
+       "name": "Carlos Roa",
+       "position": "GK",
+       "rating": 84
+      },
+      {
+       "name": "Pablo Cavallero",
+       "position": "GK",
+       "rating": 73
+      },
+      {
+       "name": "Roberto Ayala",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Roberto Sensini",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Nelson Vivas",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Javier Zanetti",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "José Chamot",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Juan Sebastián Verón",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Diego Simeone",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Matías Almeyda",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Ariel Ortega",
+       "position": "MF",
+       "rating": 87
+      },
+      {
+       "name": "Marcelo Gallardo",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Gabriel Batistuta",
+       "position": "FW",
+       "rating": 92
+      },
+      {
+       "name": "Hernán Crespo",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Claudio López",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Abel Balbo",
+       "position": "FW",
+       "rating": 74
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2002,
+   "teams": [
+    {
+     "country": "Brazil",
+     "players": [
+      {
+       "name": "Marcos",
+       "position": "GK",
+       "rating": 85
+      },
+      {
+       "name": "Dida",
+       "position": "GK",
+       "rating": 81
+      },
+      {
+       "name": "Cafu",
+       "position": "DF",
+       "rating": 89
+      },
+      {
+       "name": "Roberto Carlos",
+       "position": "DF",
+       "rating": 91
+      },
+      {
+       "name": "Lúcio",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Edmílson",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Roque Júnior",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Belletti",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Ronaldinho",
+       "position": "MF",
+       "rating": 92
+      },
+      {
+       "name": "Rivaldo",
+       "position": "MF",
+       "rating": 93
+      },
+      {
+       "name": "Gilberto Silva",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Kléberson",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Juninho Paulista",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Ronaldo",
+       "position": "FW",
+       "rating": 96
+      },
+      {
+       "name": "Denílson",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Edílson",
+       "position": "FW",
+       "rating": 75
+      },
+      {
+       "name": "Luizão",
+       "position": "FW",
+       "rating": 73
+      }
+     ]
+    },
+    {
+     "country": "Germany",
+     "players": [
+      {
+       "name": "Oliver Kahn",
+       "position": "GK",
+       "rating": 93
+      },
+      {
+       "name": "Jens Lehmann",
+       "position": "GK",
+       "rating": 84
+      },
+      {
+       "name": "Thomas Linke",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Carsten Ramelow",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Christoph Metzelder",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Marko Rehmer",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Christian Ziege",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Michael Ballack",
+       "position": "MF",
+       "rating": 90
+      },
+      {
+       "name": "Bernd Schneider",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Dietmar Hamann",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Jens Jeremies",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Torsten Frings",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Marco Bode",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Miroslav Klose",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Oliver Neuville",
+       "position": "FW",
+       "rating": 79
+      },
+      {
+       "name": "Oliver Bierhoff",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Carsten Jancker",
+       "position": "FW",
+       "rating": 74
+      }
+     ]
+    },
+    {
+     "country": "Turkey",
+     "players": [
+      {
+       "name": "Rüştü Reçber",
+       "position": "GK",
+       "rating": 87
+      },
+      {
+       "name": "Ömer Çatkıç",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Alpay Özalan",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Bülent Korkmaz",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Fatih Akyel",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Ergün Penbe",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Hakan Ünsal",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Emre Belözoğlu",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Tugay Kerimoğlu",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Yıldıray Baştürk",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Ümit Davala",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Hasan Şaş",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Hakan Şükür",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "İlhan Mansız",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Nihat Kahveci",
+       "position": "FW",
+       "rating": 79
+      }
+     ]
+    },
+    {
+     "country": "England",
+     "players": [
+      {
+       "name": "David Seaman",
+       "position": "GK",
+       "rating": 85
+      },
+      {
+       "name": "Nigel Martyn",
+       "position": "GK",
+       "rating": 77
+      },
+      {
+       "name": "Sol Campbell",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Rio Ferdinand",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Ashley Cole",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Danny Mills",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Wes Brown",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "David Beckham",
+       "position": "MF",
+       "rating": 89
+      },
+      {
+       "name": "Paul Scholes",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Nicky Butt",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Trevor Sinclair",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Owen Hargreaves",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Michael Owen",
+       "position": "FW",
+       "rating": 89
+      },
+      {
+       "name": "Emile Heskey",
+       "position": "FW",
+       "rating": 79
+      },
+      {
+       "name": "Darius Vassell",
+       "position": "FW",
+       "rating": 74
+      },
+      {
+       "name": "Teddy Sheringham",
+       "position": "FW",
+       "rating": 79
+      }
+     ]
+    },
+    {
+     "country": "South Korea",
+     "players": [
+      {
+       "name": "Lee Woon-jae",
+       "position": "GK",
+       "rating": 81
+      },
+      {
+       "name": "Kim Byung-ji",
+       "position": "GK",
+       "rating": 74
+      },
+      {
+       "name": "Hong Myung-bo",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Choi Jin-cheul",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Kim Tae-young",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Lee Young-pyo",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Song Chong-gug",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Yoo Sang-chul",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Kim Nam-il",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Lee Eul-yong",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Park Ji-sung",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Lee Chun-soo",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Ahn Jung-hwan",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Seol Ki-hyeon",
+       "position": "FW",
+       "rating": 77
+      },
+      {
+       "name": "Hwang Sun-hong",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Cha Du-ri",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2006,
+   "teams": [
+    {
+     "country": "Italy",
+     "players": [
+      {
+       "name": "Gianluigi Buffon",
+       "position": "GK",
+       "rating": 94
+      },
+      {
+       "name": "Angelo Peruzzi",
+       "position": "GK",
+       "rating": 81
+      },
+      {
+       "name": "Fabio Cannavaro",
+       "position": "DF",
+       "rating": 94
+      },
+      {
+       "name": "Alessandro Nesta",
+       "position": "DF",
+       "rating": 90
+      },
+      {
+       "name": "Gianluca Zambrotta",
+       "position": "DF",
+       "rating": 87
+      },
+      {
+       "name": "Fabio Grosso",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Marco Materazzi",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Massimo Oddo",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Andrea Pirlo",
+       "position": "MF",
+       "rating": 91
+      },
+      {
+       "name": "Gennaro Gattuso",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Daniele De Rossi",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Mauro Camoranesi",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Simone Perrotta",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Francesco Totti",
+       "position": "FW",
+       "rating": 90
+      },
+      {
+       "name": "Alessandro Del Piero",
+       "position": "FW",
+       "rating": 87
+      },
+      {
+       "name": "Luca Toni",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Alberto Gilardino",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Filippo Inzaghi",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Vincenzo Iaquinta",
+       "position": "FW",
+       "rating": 76
+      }
+     ]
+    },
+    {
+     "country": "France",
+     "players": [
+      {
+       "name": "Fabien Barthez",
+       "position": "GK",
+       "rating": 84
+      },
+      {
+       "name": "Grégory Coupet",
+       "position": "GK",
+       "rating": 83
+      },
+      {
+       "name": "Lilian Thuram",
+       "position": "DF",
+       "rating": 87
+      },
+      {
+       "name": "William Gallas",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Eric Abidal",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Willy Sagnol",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Jean-Alain Boumsong",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Zinedine Zidane",
+       "position": "MF",
+       "rating": 94
+      },
+      {
+       "name": "Patrick Vieira",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Claude Makélélé",
+       "position": "MF",
+       "rating": 87
+      },
+      {
+       "name": "Franck Ribéry",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Florent Malouda",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Thierry Henry",
+       "position": "FW",
+       "rating": 92
+      },
+      {
+       "name": "David Trezeguet",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Louis Saha",
+       "position": "FW",
+       "rating": 77
+      },
+      {
+       "name": "Sylvain Wiltord",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Sidney Govou",
+       "position": "FW",
+       "rating": 75
+      }
+     ]
+    },
+    {
+     "country": "Germany",
+     "players": [
+      {
+       "name": "Jens Lehmann",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Oliver Kahn",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Philipp Lahm",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Per Mertesacker",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Christoph Metzelder",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Arne Friedrich",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Marcell Jansen",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Michael Ballack",
+       "position": "MF",
+       "rating": 89
+      },
+      {
+       "name": "Bernd Schneider",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Torsten Frings",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Bastian Schweinsteiger",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Tim Borowski",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Sebastian Kehl",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Miroslav Klose",
+       "position": "FW",
+       "rating": 89
+      },
+      {
+       "name": "Lukas Podolski",
+       "position": "FW",
+       "rating": 83
+      },
+      {
+       "name": "Oliver Neuville",
+       "position": "FW",
+       "rating": 76
+      },
+      {
+       "name": "David Odonkor",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    },
+    {
+     "country": "Portugal",
+     "players": [
+      {
+       "name": "Ricardo",
+       "position": "GK",
+       "rating": 83
+      },
+      {
+       "name": "Quim",
+       "position": "GK",
+       "rating": 76
+      },
+      {
+       "name": "Ricardo Carvalho",
+       "position": "DF",
+       "rating": 87
+      },
+      {
+       "name": "Fernando Meira",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Miguel",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Nuno Valente",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Marco Caneira",
+       "position": "DF",
+       "rating": 72
+      },
+      {
+       "name": "Deco",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Luís Figo",
+       "position": "MF",
+       "rating": 89
+      },
+      {
+       "name": "Maniche",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Costinha",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Tiago",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Petit",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Cristiano Ronaldo",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "Pauleta",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Nuno Gomes",
+       "position": "FW",
+       "rating": 79
+      },
+      {
+       "name": "Simão",
+       "position": "FW",
+       "rating": 80
+      }
+     ]
+    },
+    {
+     "country": "Argentina",
+     "players": [
+      {
+       "name": "Roberto Abbondanzieri",
+       "position": "GK",
+       "rating": 82
+      },
+      {
+       "name": "Leo Franco",
+       "position": "GK",
+       "rating": 75
+      },
+      {
+       "name": "Roberto Ayala",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Gabriel Heinze",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Juan Pablo Sorín",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Nicolás Burdisso",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Fabricio Coloccini",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Lionel Scaloni",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Juan Román Riquelme",
+       "position": "MF",
+       "rating": 90
+      },
+      {
+       "name": "Esteban Cambiasso",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Javier Mascherano",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Maxi Rodríguez",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Luis González",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Pablo Aimar",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Hernán Crespo",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Lionel Messi",
+       "position": "FW",
+       "rating": 85
+      },
+      {
+       "name": "Carlos Tevez",
+       "position": "FW",
+       "rating": 85
+      },
+      {
+       "name": "Javier Saviola",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Rodrigo Palacio",
+       "position": "FW",
+       "rating": 76
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2010,
+   "teams": [
+    {
+     "country": "Spain",
+     "players": [
+      {
+       "name": "Iker Casillas",
+       "position": "GK",
+       "rating": 92
+      },
+      {
+       "name": "Pepe Reina",
+       "position": "GK",
+       "rating": 84
+      },
+      {
+       "name": "Víctor Valdés",
+       "position": "GK",
+       "rating": 83
+      },
+      {
+       "name": "Carles Puyol",
+       "position": "DF",
+       "rating": 88
+      },
+      {
+       "name": "Gerard Piqué",
+       "position": "DF",
+       "rating": 87
+      },
+      {
+       "name": "Sergio Ramos",
+       "position": "DF",
+       "rating": 88
+      },
+      {
+       "name": "Joan Capdevila",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Álvaro Arbeloa",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Carlos Marchena",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Xavi",
+       "position": "MF",
+       "rating": 95
+      },
+      {
+       "name": "Andrés Iniesta",
+       "position": "MF",
+       "rating": 94
+      },
+      {
+       "name": "Sergio Busquets",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Xabi Alonso",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Cesc Fàbregas",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "David Silva",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "David Villa",
+       "position": "FW",
+       "rating": 90
+      },
+      {
+       "name": "Fernando Torres",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Pedro",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Fernando Llorente",
+       "position": "FW",
+       "rating": 78
+      }
+     ]
+    },
+    {
+     "country": "Netherlands",
+     "players": [
+      {
+       "name": "Maarten Stekelenburg",
+       "position": "GK",
+       "rating": 82
+      },
+      {
+       "name": "Michel Vorm",
+       "position": "GK",
+       "rating": 74
+      },
+      {
+       "name": "John Heitinga",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Joris Mathijsen",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Gregory van der Wiel",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Giovanni van Bronckhorst",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "André Ooijer",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Wesley Sneijder",
+       "position": "MF",
+       "rating": 91
+      },
+      {
+       "name": "Mark van Bommel",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Nigel de Jong",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Rafael van der Vaart",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Ibrahim Afellay",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Arjen Robben",
+       "position": "FW",
+       "rating": 90
+      },
+      {
+       "name": "Robin van Persie",
+       "position": "FW",
+       "rating": 87
+      },
+      {
+       "name": "Dirk Kuyt",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Klaas-Jan Huntelaar",
+       "position": "FW",
+       "rating": 79
+      },
+      {
+       "name": "Eljero Elia",
+       "position": "FW",
+       "rating": 74
+      }
+     ]
+    },
+    {
+     "country": "Germany",
+     "players": [
+      {
+       "name": "Manuel Neuer",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Tim Wiese",
+       "position": "GK",
+       "rating": 74
+      },
+      {
+       "name": "Hans-Jörg Butt",
+       "position": "GK",
+       "rating": 73
+      },
+      {
+       "name": "Philipp Lahm",
+       "position": "DF",
+       "rating": 89
+      },
+      {
+       "name": "Per Mertesacker",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Arne Friedrich",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Holger Badstuber",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Jérôme Boateng",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Bastian Schweinsteiger",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Mesut Özil",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Sami Khedira",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Thomas Müller",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Toni Kroos",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Piotr Trochowski",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Miroslav Klose",
+       "position": "FW",
+       "rating": 85
+      },
+      {
+       "name": "Lukas Podolski",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Mario Gómez",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Cacau",
+       "position": "FW",
+       "rating": 73
+      }
+     ]
+    },
+    {
+     "country": "Uruguay",
+     "players": [
+      {
+       "name": "Fernando Muslera",
+       "position": "GK",
+       "rating": 81
+      },
+      {
+       "name": "Juan Castillo",
+       "position": "GK",
+       "rating": 71
+      },
+      {
+       "name": "Diego Lugano",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Diego Godín",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Maxi Pereira",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Jorge Fucile",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Mauricio Victorino",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Diego Pérez",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Egidio Arévalo Ríos",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Álvaro Pereira",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Sebastián Eguren",
+       "position": "MF",
+       "rating": 72
+      },
+      {
+       "name": "Nicolás Lodeiro",
+       "position": "MF",
+       "rating": 73
+      },
+      {
+       "name": "Diego Forlán",
+       "position": "FW",
+       "rating": 90
+      },
+      {
+       "name": "Luis Suárez",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "Edinson Cavani",
+       "position": "FW",
+       "rating": 85
+      },
+      {
+       "name": "Sebastián Abreu",
+       "position": "FW",
+       "rating": 76
+      }
+     ]
+    },
+    {
+     "country": "Argentina",
+     "players": [
+      {
+       "name": "Sergio Romero",
+       "position": "GK",
+       "rating": 79
+      },
+      {
+       "name": "Mariano Andújar",
+       "position": "GK",
+       "rating": 73
+      },
+      {
+       "name": "Martín Demichelis",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Walter Samuel",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Gabriel Heinze",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Nicolás Otamendi",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Nicolás Burdisso",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Javier Mascherano",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Juan Sebastián Verón",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Ángel Di María",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Maxi Rodríguez",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Javier Pastore",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Lionel Messi",
+       "position": "FW",
+       "rating": 96
+      },
+      {
+       "name": "Gonzalo Higuaín",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Carlos Tevez",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Sergio Agüero",
+       "position": "FW",
+       "rating": 85
+      },
+      {
+       "name": "Diego Milito",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Martín Palermo",
+       "position": "FW",
+       "rating": 74
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2014,
+   "teams": [
+    {
+     "country": "Germany",
+     "players": [
+      {
+       "name": "Manuel Neuer",
+       "position": "GK",
+       "rating": 92
+      },
+      {
+       "name": "Roman Weidenfeller",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Ron-Robert Zieler",
+       "position": "GK",
+       "rating": 75
+      },
+      {
+       "name": "Philipp Lahm",
+       "position": "DF",
+       "rating": 90
+      },
+      {
+       "name": "Mats Hummels",
+       "position": "DF",
+       "rating": 88
+      },
+      {
+       "name": "Jérôme Boateng",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Benedikt Höwedes",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Per Mertesacker",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Erik Durm",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "Toni Kroos",
+       "position": "MF",
+       "rating": 89
+      },
+      {
+       "name": "Bastian Schweinsteiger",
+       "position": "MF",
+       "rating": 87
+      },
+      {
+       "name": "Mesut Özil",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Sami Khedira",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Mario Götze",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Julian Draxler",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Thomas Müller",
+       "position": "FW",
+       "rating": 89
+      },
+      {
+       "name": "Miroslav Klose",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "André Schürrle",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Lukas Podolski",
+       "position": "FW",
+       "rating": 79
+      }
+     ]
+    },
+    {
+     "country": "Argentina",
+     "players": [
+      {
+       "name": "Sergio Romero",
+       "position": "GK",
+       "rating": 81
+      },
+      {
+       "name": "Agustín Orión",
+       "position": "GK",
+       "rating": 73
+      },
+      {
+       "name": "Pablo Zabaleta",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Ezequiel Garay",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Martín Demichelis",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Marcos Rojo",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "José María Basanta",
+       "position": "DF",
+       "rating": 72
+      },
+      {
+       "name": "Federico Fernández",
+       "position": "DF",
+       "rating": 75
+      },
+      {
+       "name": "Javier Mascherano",
+       "position": "MF",
+       "rating": 87
+      },
+      {
+       "name": "Ángel Di María",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Lucas Biglia",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Fernando Gago",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Enzo Pérez",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Lionel Messi",
+       "position": "FW",
+       "rating": 97
+      },
+      {
+       "name": "Gonzalo Higuaín",
+       "position": "FW",
+       "rating": 86
+      },
+      {
+       "name": "Sergio Agüero",
+       "position": "FW",
+       "rating": 87
+      },
+      {
+       "name": "Ezequiel Lavezzi",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Rodrigo Palacio",
+       "position": "FW",
+       "rating": 77
+      }
+     ]
+    },
+    {
+     "country": "Netherlands",
+     "players": [
+      {
+       "name": "Jasper Cillessen",
+       "position": "GK",
+       "rating": 80
+      },
+      {
+       "name": "Tim Krul",
+       "position": "GK",
+       "rating": 79
+      },
+      {
+       "name": "Michel Vorm",
+       "position": "GK",
+       "rating": 74
+      },
+      {
+       "name": "Ron Vlaar",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Stefan de Vrij",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Bruno Martins Indi",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Daley Blind",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Daryl Janmaat",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Wesley Sneijder",
+       "position": "MF",
+       "rating": 86
+      },
+      {
+       "name": "Nigel de Jong",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Georginio Wijnaldum",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Jordy Clasie",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Jonathan de Guzmán",
+       "position": "MF",
+       "rating": 73
+      },
+      {
+       "name": "Arjen Robben",
+       "position": "FW",
+       "rating": 92
+      },
+      {
+       "name": "Robin van Persie",
+       "position": "FW",
+       "rating": 89
+      },
+      {
+       "name": "Dirk Kuyt",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Memphis Depay",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Klaas-Jan Huntelaar",
+       "position": "FW",
+       "rating": 78
+      }
+     ]
+    },
+    {
+     "country": "Brazil",
+     "players": [
+      {
+       "name": "Júlio César",
+       "position": "GK",
+       "rating": 82
+      },
+      {
+       "name": "Jefferson",
+       "position": "GK",
+       "rating": 75
+      },
+      {
+       "name": "Thiago Silva",
+       "position": "DF",
+       "rating": 89
+      },
+      {
+       "name": "David Luiz",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Marcelo",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Dani Alves",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Maicon",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Dante",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Oscar",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Paulinho",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Fernandinho",
+       "position": "MF",
+       "rating": 81
+      },
+      {
+       "name": "Luiz Gustavo",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Ramires",
+       "position": "MF",
+       "rating": 78
+      },
+      {
+       "name": "Willian",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Neymar",
+       "position": "FW",
+       "rating": 91
+      },
+      {
+       "name": "Fred",
+       "position": "FW",
+       "rating": 76
+      },
+      {
+       "name": "Hulk",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Jô",
+       "position": "FW",
+       "rating": 71
+      },
+      {
+       "name": "Bernard",
+       "position": "FW",
+       "rating": 74
+      }
+     ]
+    },
+    {
+     "country": "Colombia",
+     "players": [
+      {
+       "name": "David Ospina",
+       "position": "GK",
+       "rating": 82
+      },
+      {
+       "name": "Faryd Mondragón",
+       "position": "GK",
+       "rating": 74
+      },
+      {
+       "name": "Juan Camilo Zúñiga",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Mario Yepes",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Cristián Zapata",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Pablo Armero",
+       "position": "DF",
+       "rating": 76
+      },
+      {
+       "name": "Santiago Arias",
+       "position": "DF",
+       "rating": 73
+      },
+      {
+       "name": "James Rodríguez",
+       "position": "MF",
+       "rating": 89
+      },
+      {
+       "name": "Juan Cuadrado",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Carlos Sánchez",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Abel Aguilar",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Fredy Guarín",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Juan Fernando Quintero",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Jackson Martínez",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Teófilo Gutiérrez",
+       "position": "FW",
+       "rating": 77
+      },
+      {
+       "name": "Carlos Bacca",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Adrián Ramos",
+       "position": "FW",
+       "rating": 74
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "teams": [
+    {
+     "country": "Argentina",
+     "players": [
+      {
+       "name": "Emiliano Martínez",
+       "position": "GK",
+       "rating": 88
+      },
+      {
+       "name": "Franco Armani",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Gerónimo Rulli",
+       "position": "GK",
+       "rating": 76
+      },
+      {
+       "name": "Nicolás Otamendi",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Cristian Romero",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Lisandro Martínez",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Nahuel Molina",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Marcos Acuña",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Nicolás Tagliafico",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Gonzalo Montiel",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Rodrigo De Paul",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Enzo Fernández",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Alexis Mac Allister",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Leandro Paredes",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Exequiel Palacios",
+       "position": "MF",
+       "rating": 74
+      },
+      {
+       "name": "Lionel Messi",
+       "position": "FW",
+       "rating": 96
+      },
+      {
+       "name": "Julián Álvarez",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Lautaro Martínez",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Ángel Di María",
+       "position": "FW",
+       "rating": 86
+      }
+     ]
+    },
+    {
+     "country": "France",
+     "players": [
+      {
+       "name": "Hugo Lloris",
+       "position": "GK",
+       "rating": 86
+      },
+      {
+       "name": "Steve Mandanda",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Alphonse Areola",
+       "position": "GK",
+       "rating": 76
+      },
+      {
+       "name": "Raphaël Varane",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Dayot Upamecano",
+       "position": "DF",
+       "rating": 82
+      },
+      {
+       "name": "Jules Koundé",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Theo Hernández",
+       "position": "DF",
+       "rating": 84
+      },
+      {
+       "name": "Benjamin Pavard",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Ibrahima Konaté",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Antoine Griezmann",
+       "position": "MF",
+       "rating": 89
+      },
+      {
+       "name": "Aurélien Tchouaméni",
+       "position": "MF",
+       "rating": 83
+      },
+      {
+       "name": "Adrien Rabiot",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Eduardo Camavinga",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Youssouf Fofana",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Jordan Veretout",
+       "position": "MF",
+       "rating": 73
+      },
+      {
+       "name": "Kylian Mbappé",
+       "position": "FW",
+       "rating": 95
+      },
+      {
+       "name": "Olivier Giroud",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Ousmane Dembélé",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Marcus Thuram",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Kingsley Coman",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Randal Kolo Muani",
+       "position": "FW",
+       "rating": 79
+      }
+     ]
+    },
+    {
+     "country": "Croatia",
+     "players": [
+      {
+       "name": "Dominik Livaković",
+       "position": "GK",
+       "rating": 85
+      },
+      {
+       "name": "Ivica Ivušić",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Joško Gvardiol",
+       "position": "DF",
+       "rating": 85
+      },
+      {
+       "name": "Dejan Lovren",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Josip Juranović",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Borna Sosa",
+       "position": "DF",
+       "rating": 77
+      },
+      {
+       "name": "Josip Stanišić",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Luka Modrić",
+       "position": "MF",
+       "rating": 91
+      },
+      {
+       "name": "Mateo Kovačić",
+       "position": "MF",
+       "rating": 85
+      },
+      {
+       "name": "Marcelo Brozović",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Nikola Vlašić",
+       "position": "MF",
+       "rating": 76
+      },
+      {
+       "name": "Lovro Majer",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Ivan Perišić",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Andrej Kramarić",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Marko Livaja",
+       "position": "FW",
+       "rating": 76
+      },
+      {
+       "name": "Bruno Petković",
+       "position": "FW",
+       "rating": 74
+      },
+      {
+       "name": "Ante Budimir",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    },
+    {
+     "country": "Morocco",
+     "players": [
+      {
+       "name": "Yassine Bounou",
+       "position": "GK",
+       "rating": 85
+      },
+      {
+       "name": "Munir El Kajoui",
+       "position": "GK",
+       "rating": 72
+      },
+      {
+       "name": "Achraf Hakimi",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Noussair Mazraoui",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Romain Saïss",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Nayef Aguerd",
+       "position": "DF",
+       "rating": 80
+      },
+      {
+       "name": "Yahia Attiyat-Allah",
+       "position": "DF",
+       "rating": 74
+      },
+      {
+       "name": "Achraf Dari",
+       "position": "DF",
+       "rating": 72
+      },
+      {
+       "name": "Sofyan Amrabat",
+       "position": "MF",
+       "rating": 84
+      },
+      {
+       "name": "Azzedine Ounahi",
+       "position": "MF",
+       "rating": 79
+      },
+      {
+       "name": "Selim Amallah",
+       "position": "MF",
+       "rating": 75
+      },
+      {
+       "name": "Abdelhamid Sabiri",
+       "position": "MF",
+       "rating": 73
+      },
+      {
+       "name": "Hakim Ziyech",
+       "position": "FW",
+       "rating": 84
+      },
+      {
+       "name": "Youssef En-Nesyri",
+       "position": "FW",
+       "rating": 79
+      },
+      {
+       "name": "Sofiane Boufal",
+       "position": "FW",
+       "rating": 78
+      },
+      {
+       "name": "Zakaria Aboukhlal",
+       "position": "FW",
+       "rating": 73
+      },
+      {
+       "name": "Abde Ezzalzouli",
+       "position": "FW",
+       "rating": 72
+      }
+     ]
+    },
+    {
+     "country": "Brazil",
+     "players": [
+      {
+       "name": "Alisson",
+       "position": "GK",
+       "rating": 89
+      },
+      {
+       "name": "Ederson",
+       "position": "GK",
+       "rating": 87
+      },
+      {
+       "name": "Weverton",
+       "position": "GK",
+       "rating": 78
+      },
+      {
+       "name": "Marquinhos",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Thiago Silva",
+       "position": "DF",
+       "rating": 86
+      },
+      {
+       "name": "Éder Militão",
+       "position": "DF",
+       "rating": 83
+      },
+      {
+       "name": "Danilo",
+       "position": "DF",
+       "rating": 81
+      },
+      {
+       "name": "Alex Sandro",
+       "position": "DF",
+       "rating": 79
+      },
+      {
+       "name": "Bremer",
+       "position": "DF",
+       "rating": 78
+      },
+      {
+       "name": "Casemiro",
+       "position": "MF",
+       "rating": 88
+      },
+      {
+       "name": "Lucas Paquetá",
+       "position": "MF",
+       "rating": 82
+      },
+      {
+       "name": "Fabinho",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Bruno Guimarães",
+       "position": "MF",
+       "rating": 80
+      },
+      {
+       "name": "Fred",
+       "position": "MF",
+       "rating": 77
+      },
+      {
+       "name": "Neymar",
+       "position": "FW",
+       "rating": 89
+      },
+      {
+       "name": "Vinícius Júnior",
+       "position": "FW",
+       "rating": 88
+      },
+      {
+       "name": "Richarlison",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Raphinha",
+       "position": "FW",
+       "rating": 81
+      },
+      {
+       "name": "Rodrygo",
+       "position": "FW",
+       "rating": 82
+      },
+      {
+       "name": "Gabriel Jesus",
+       "position": "FW",
+       "rating": 80
+      },
+      {
+       "name": "Antony",
+       "position": "FW",
+       "rating": 78
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
