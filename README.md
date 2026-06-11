@@ -20,7 +20,8 @@ adds multiplayer rooms, exclusive draft picks, and head-to-head simulation.
 4. **Draft** — snake order. On your turn a dice rolls a random national team
    from a World Cup edition; you pick one player to fill a slot **of his exact
    position** (no striker in midfield). Picks are **exclusive**: a drafted
-   player is gone for everyone. You get 3 wildcards to reroll, ineligible
+   player is gone for everyone — and a legend who appears in several editions
+   (Cafu '94/'98/'02, Messi '06–'22) can only be drafted once per room. You get 3 wildcards to reroll, ineligible
    squads reroll free, and the timer auto-picks for AFK players.
 5. **Tournament** — with 2 players it's a single grand final; with 3–8 it's a
    full round robin followed by a final between the top two. Every match plays

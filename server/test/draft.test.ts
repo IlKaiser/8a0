@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { Player, Slot } from '@otto/shared';
 import { FORMATIONS } from '@otto/shared';
 import {
-  autoPick, eligibleSlotIndices, rollSquad, snakeOrder, squadHasEligible,
+  autoPick, eligibleSlotIndices, personKey, rollSquad, snakeOrder, squadHasEligible,
 } from '../src/draft.js';
 import type { Squad } from '../src/data.js';
 
@@ -54,7 +54,7 @@ describe('squadHasEligible / rollSquad', () => {
       { year: 1970, country: 'NoGK', players: [P('a', 'FW', 90)] },
       { year: 1974, country: 'HasGK', players: [P('b', 'GK', 75), P('c', 'GK', 70)] },
     ];
-    const drafted = new Set(['c']);
+    const drafted = new Set([personKey(P('c', 'GK', 70))]);
     // rng: first try squad 0 (no GK -> ineligible), then squad 1
     const seq = [0, 0.9];
     let call = 0;
@@ -62,6 +62,23 @@ describe('squadHasEligible / rollSquad', () => {
     const roll = rollSquad(squads, drafted, slots, rng);
     expect(roll.country).toBe('HasGK');
     expect(roll.players.map((p) => p.id)).toEqual(['b']); // 'c' drafted, filtered out
+  });
+
+  it('drafting a person excludes them from every edition (one Cafu per room)', () => {
+    const slots = emptySlots();
+    const card = (year: number, name: string): Squad['players'][number] => ({
+      id: `${year}-Brazil-${name}`, name, position: 'DF', rating: 88,
+      year, country: 'Brazil',
+    });
+    const squads: Squad[] = [
+      { year: 1994, country: 'Brazil', players: [card(1994, 'Cafu'), card(1994, 'Branco')] },
+      { year: 1998, country: 'Brazil', players: [card(1998, 'Cafu'), card(1998, 'Aldair')] },
+    ];
+    // Cafu's 1994 card was drafted: his 1998 card must disappear from rolls
+    const drafted = new Set([personKey(card(1994, 'Cafu'))]);
+    const roll = rollSquad(squads, drafted, slots, () => 0.9); // picks 1998 squad
+    expect(roll.year).toBe(1998);
+    expect(roll.players.map((p) => p.name)).toEqual(['Aldair']);
   });
 });
 

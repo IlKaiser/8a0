@@ -21,7 +21,7 @@ export interface Seat {
 export interface DraftPhaseState {
   order: string[];
   pickNumber: number;
-  draftedIds: Set<string>;
+  draftedPersons: Set<string>; // personKey() of every drafted player
   roll: SquadRoll | null;
   deadline: number | null;
   log: PickLogEntry[];

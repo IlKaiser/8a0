@@ -26,19 +26,28 @@ export function squadHasEligible(players: Player[], slots: Slot[]): boolean {
 const MAX_ROLL_TRIES = 500;
 
 /**
+ * Identity of the human being behind a card: the same legend appearing in
+ * several editions (Cafu '94/'98/'02) is one draftable person.
+ */
+export function personKey(p: Player): string {
+  return `${p.country}|${p.name}`;
+}
+
+/**
  * Roll a random squad that still contains at least one undrafted player
  * eligible for the active seat's open slots (the spec's free auto-reroll).
+ * A drafted person is excluded across all editions, not just their card.
  */
 export function rollSquad(
   squads: Squad[],
-  draftedIds: Set<string>,
+  draftedPersons: Set<string>,
   slots: Slot[],
   rng: () => number,
 ): SquadRoll {
   let fallback: SquadRoll | null = null;
   for (let tries = 0; tries < MAX_ROLL_TRIES; tries++) {
     const squad = squads[Math.floor(rng() * squads.length)];
-    const players = squad.players.filter((p) => !draftedIds.has(p.id));
+    const players = squad.players.filter((p) => !draftedPersons.has(personKey(p)));
     if (players.length === 0) continue;
     fallback = { year: squad.year, country: squad.country, players };
     if (squadHasEligible(players, slots)) return fallback;

@@ -3,7 +3,7 @@ import {
   FORMATIONS, MIN_SEATS, TEAM_SIZE, TURN_TIMER_CHOICES, WILDCARDS_PER_PLAYER,
 } from '@otto/shared';
 import type { Squad } from './data.js';
-import { autoPick, eligibleSlotIndices, rollSquad, snakeOrder } from './draft.js';
+import { autoPick, eligibleSlotIndices, personKey, rollSquad, snakeOrder } from './draft.js';
 import type { Room, Seat, TournamentPhaseState } from './rooms.js';
 import { simulateMatch } from './simulate.js';
 import { computeStandings, roundRobinFixtures } from './tournament.js';
@@ -81,7 +81,7 @@ function beginDraft(room: Room, deps: GameDeps): void {
   room.draft = {
     order: snakeOrder(shuffled(room.seats.map((s) => s.id), room.rng), TEAM_SIZE),
     pickNumber: 0,
-    draftedIds: new Set(),
+    draftedPersons: new Set(),
     roll: null,
     deadline: null,
     log: [],
@@ -94,7 +94,7 @@ function startTurn(room: Room, deps: GameDeps): void {
   const d = room.draft;
   if (!d) return;
   const seat = seatOf(room, d.order[d.pickNumber]);
-  d.roll = rollSquad(deps.squads, d.draftedIds, seat.slots, room.rng);
+  d.roll = rollSquad(deps.squads, d.draftedPersons, seat.slots, room.rng);
   if (room.turnTimerSec > 0) {
     d.deadline = Date.now() + room.turnTimerSec * 1000;
     d.timer = setTimeout(() => {
@@ -136,7 +136,7 @@ function applyPick(
   }
   if (d.timer) { clearTimeout(d.timer); d.timer = null; }
   seat.slots[slotIndex].player = player;
-  d.draftedIds.add(player.id);
+  d.draftedPersons.add(personKey(player));
   d.log.push({
     pickNumber: d.pickNumber, seatId, nickname: seat.nickname,
     player, slotIndex, auto,
