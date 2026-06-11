@@ -142,3 +142,32 @@ fieldset { border: 1px solid var(--line); border-radius: var(--radius); margin: 
 @media (max-width: 900px) {
   .draft, .draft-main { grid-template-columns: 1fr; }
 }
+
+.champion {
+  font-size: 1.5rem; color: var(--accent); font-weight: 800;
+  border: 1px solid var(--accent); border-radius: var(--radius);
+  padding: 12px 18px; display: inline-block;
+  animation: pop 0.5s ease;
+}
+@keyframes pop { from { transform: scale(0.7); opacity: 0; } }
+
+.matches { margin: 14px 0; }
+.match {
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 10px 14px; margin: 6px 0;
+  animation: slide-in 0.4s ease;
+}
+.match.final-match { border-color: var(--accent); }
+@keyframes slide-in { from { transform: translateY(8px); opacity: 0; } }
+
+.standings { border-collapse: collapse; width: 100%; max-width: 560px; }
+.standings th, .standings td {
+  border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: center;
+}
+.standings td:first-child, .standings th:first-child { text-align: left; }
+
+.lineups {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px; margin: 18px 0;
+}
+.results-actions { display: flex; gap: 10px; margin-top: 12px; }
