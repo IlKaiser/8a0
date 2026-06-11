@@ -29,8 +29,10 @@ adds multiplayer rooms, exclusive draft picks, and head-to-head simulation.
    after 90' goes straight to a **penalty shootout** — there are no draws, and
    a shootout win counts as a win in the standings. Results come from a seeded
    simulation of squad quality and positional strength (Poisson goals).
-6. **Results** — standings, every scoreline, all lineups, a copyable share
-   card, and a one-click rematch.
+6. **Results** — standings, every scoreline with scorers, all lineups, and a
+   copyable share card. The host can then **replay with the same teams**,
+   settle it with a **best-of-7 series** between the finalists (first to 4
+   wins), or start a **new draft** from scratch.
 
 ## Running it
 

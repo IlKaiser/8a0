@@ -201,3 +201,11 @@ fieldset { border: 1px solid var(--line); border-radius: var(--radius); margin: 
 .pens { color: var(--accent); font-weight: 700; }
 .scorers { color: var(--text-dim); font-size: 0.85rem; margin: 4px 0 0; }
 .match p { margin: 0; }
+
+.series-score {
+  font-size: 1.3rem; color: var(--text);
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 10px 18px; display: inline-block;
+}
+.series-score strong { color: var(--accent); font-size: 1.5rem; }
+.series-score em { color: var(--text-dim); font-style: normal; font-size: 0.9rem; }

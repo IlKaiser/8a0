@@ -102,6 +102,53 @@ describe('game flow', () => {
     expect(fresh.room.draft!.log[0].auto).toBe(true);
   });
 
+  it('replay keeps the drafted teams and plays a fresh tournament', () => {
+    const deps = depsWith();
+    const { room, host, guest } = setupDraft(deps);
+    draftToCompletion(room, deps);
+    vi.advanceTimersByTime(100);
+    expect(room.phase).toBe('results');
+    const teamsBefore = room.seats.map((s) => s.slots.map((sl) => sl.player!.id).join(','));
+
+    expect(() => game.replaySameTeams(room, guest.id, deps)).toThrow(/host/);
+    game.replaySameTeams(room, host.id, deps);
+    expect(room.phase).toBe('tournament');
+    expect(room.tournament!.kind).toBe('cup');
+    expect(room.seats.map((s) => s.slots.map((sl) => sl.player!.id).join(',')))
+      .toEqual(teamsBefore);
+    vi.advanceTimersByTime(100);
+    expect(room.phase).toBe('results');
+    expect(room.tournament!.championSeatId).toBeTruthy();
+  });
+
+  it('best of 7: finalists play until one reaches 4 wins, who becomes champion', () => {
+    const deps = depsWith();
+    const { room, host, guest } = setupDraft(deps);
+    draftToCompletion(room, deps);
+    vi.advanceTimersByTime(100);
+    expect(room.phase).toBe('results');
+
+    expect(() => game.startBestOf7(room, guest.id, deps)).toThrow(/host/);
+    game.startBestOf7(room, host.id, deps);
+    expect(room.tournament!.kind).toBe('series');
+    const matches = room.tournament!.matches;
+    expect(matches.length).toBeGreaterThanOrEqual(4);
+    expect(matches.length).toBeLessThanOrEqual(7);
+
+    const wins: Record<string, number> = {};
+    for (const m of matches) {
+      const w = game.matchWinner(m);
+      wins[w] = (wins[w] ?? 0) + 1;
+    }
+    expect(Math.max(...Object.values(wins))).toBe(4); // clinched, then stopped
+    const clincher = game.matchWinner(matches[matches.length - 1]);
+    expect(wins[clincher]).toBe(4);
+
+    vi.advanceTimersByTime(1000); // play out all games (playMs 5 + gap 2 each)
+    expect(room.phase).toBe('results');
+    expect(room.tournament!.championSeatId).toBe(clincher);
+  });
+
   it('rematch resets to formation phase with full wildcards and empty boards', () => {
     const deps = depsWith();
     const { room, host } = setupDraft(deps);

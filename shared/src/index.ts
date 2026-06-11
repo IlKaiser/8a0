@@ -120,6 +120,7 @@ export interface StandingRow {
 }
 
 export interface TournamentView {
+  kind: 'cup' | 'series'; // cup: round robin + final · series: best of 7
   revealed: MatchResult[]; // fully played matches
   playing: MatchResult | null; // match currently being played out live
   playStartedAt: number | null; // epoch ms when live playback began
@@ -161,5 +162,7 @@ export interface ClientToServerEvents {
   'formation:choose': (p: { formation: FormationId }) => void;
   'draft:pick': (p: { playerId: string; slotIndex: number }) => void;
   'draft:wildcard': () => void;
-  'room:rematch': () => void;
+  'room:rematch': () => void; // new draft from scratch
+  'room:replay': () => void; // same teams, new tournament
+  'room:bestof7': () => void; // same teams, finalists play first-to-4 series
 }

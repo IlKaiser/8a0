@@ -177,14 +177,26 @@ function startTournament(room: Room, deps: GameDeps): void {
     homeSeatId: finalists[0], awaySeatId: finalists[1], isFinal: true, seed: seed(),
   }));
 
-  const playMs = deps.playMs ?? DEFAULT_PLAY_MS;
-  const t: TournamentPhaseState = {
-    matches, revealedCount: 0, playingIndex: null, playStartedAt: null,
-    playDurationMs: playMs, championSeatId: null, timer: null,
+  room.tournament = {
+    kind: 'cup', matches, revealedCount: 0, playingIndex: null,
+    playStartedAt: null, playDurationMs: deps.playMs ?? DEFAULT_PLAY_MS,
+    championSeatId: null, timer: null,
   };
-  room.tournament = t;
+  runPlayback(room, deps);
+}
 
-  // Play matches one at a time: live playback for playMs, short gap, next.
+export function matchWinner(m: MatchResult): string {
+  const homeWon = m.penalties
+    ? m.penalties.home > m.penalties.away
+    : m.homeGoals > m.awayGoals;
+  return homeWon ? m.homeSeatId : m.awaySeatId;
+}
+
+// Play matches one at a time: live playback for playMs, short gap, next.
+// The champion is the winner of the last match (cup final / series clincher).
+function runPlayback(room: Room, deps: GameDeps): void {
+  const t = room.tournament;
+  if (!t) return;
   const playNext = (): void => {
     t.playingIndex = t.revealedCount;
     t.playStartedAt = Date.now();
@@ -197,20 +209,62 @@ function startTournament(room: Room, deps: GameDeps): void {
       room.lastActivity = Date.now();
       if (t.revealedCount >= t.matches.length) {
         t.timer = null;
-        const final = t.matches[t.matches.length - 1];
-        const homeWon = final.penalties
-          ? final.penalties.home > final.penalties.away
-          : final.homeGoals > final.awayGoals;
-        t.championSeatId = homeWon ? final.homeSeatId : final.awaySeatId;
+        t.championSeatId = matchWinner(t.matches[t.matches.length - 1]);
         room.phase = 'results';
         deps.broadcast(room);
       } else {
         deps.broadcast(room);
         t.timer = setTimeout(playNext, deps.gapMs ?? DEFAULT_GAP_MS);
       }
-    }, playMs);
+    }, t.playDurationMs);
   };
   playNext();
+}
+
+/** Same drafted teams, brand-new cup (fresh seeds, so new results). */
+export function replaySameTeams(room: Room, seatId: string, deps: GameDeps): void {
+  requireHost(room, seatId);
+  if (room.phase !== 'results' || !room.tournament) {
+    throw new Error('no finished game to replay');
+  }
+  if (room.tournament.timer) clearTimeout(room.tournament.timer);
+  room.tournament = null;
+  startTournament(room, deps);
+}
+
+const SERIES_TARGET = 4; // best of 7
+
+/** The two finalists of the finished game settle it over a first-to-4 series. */
+export function startBestOf7(room: Room, seatId: string, deps: GameDeps): void {
+  requireHost(room, seatId);
+  if (room.phase !== 'results' || !room.tournament) {
+    throw new Error('no finished game to continue');
+  }
+  const prev = room.tournament;
+  if (prev.timer) clearTimeout(prev.timer);
+  const decider = prev.matches[prev.matches.length - 1];
+  const [a, b] = [decider.homeSeatId, decider.awaySeatId];
+  const slotsOf = (id: string) => seatOf(room, id).slots;
+  const seed = () => Math.floor(room.rng() * 2 ** 31);
+
+  const matches: MatchResult[] = [];
+  const wins: Record<string, number> = { [a]: 0, [b]: 0 };
+  while (matches.length < 7 && wins[a] < SERIES_TARGET && wins[b] < SERIES_TARGET) {
+    const [home, away] = matches.length % 2 === 0 ? [a, b] : [b, a]; // alternate home side
+    const m = simulateMatch(slotsOf(home), slotsOf(away), {
+      homeSeatId: home, awaySeatId: away, isFinal: false, seed: seed(),
+    });
+    wins[matchWinner(m)]++;
+    matches.push(m);
+  }
+
+  room.phase = 'tournament';
+  room.tournament = {
+    kind: 'series', matches, revealedCount: 0, playingIndex: null,
+    playStartedAt: null, playDurationMs: deps.playMs ?? DEFAULT_PLAY_MS,
+    championSeatId: null, timer: null,
+  };
+  runPlayback(room, deps);
 }
 
 export function rematch(room: Room, seatId: string, deps: GameDeps): void {

@@ -27,6 +27,8 @@ export interface RoomApi {
   pick: (playerId: string, slotIndex: number) => void;
   wildcard: () => void;
   rematch: () => void;
+  replay: () => void;
+  bestOf7: () => void;
 }
 
 export function useRoom(): RoomApi {
@@ -83,5 +85,7 @@ export function useRoom(): RoomApi {
     pick: (playerId, slotIndex) => socket.emit('draft:pick', { playerId, slotIndex }),
     wildcard: () => socket.emit('draft:wildcard'),
     rematch: () => socket.emit('room:rematch'),
+    replay: () => socket.emit('room:replay'),
+    bestOf7: () => socket.emit('room:bestof7'),
   };
 }

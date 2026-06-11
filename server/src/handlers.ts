@@ -83,6 +83,10 @@ export function registerHandlers(io: IO, socket: Sock): void {
     withRoom((room, seatId) => game.handleWildcard(room, seatId, deps)));
   socket.on('room:rematch', () =>
     withRoom((room, seatId) => game.rematch(room, seatId, deps)));
+  socket.on('room:replay', () =>
+    withRoom((room, seatId) => game.replaySameTeams(room, seatId, deps)));
+  socket.on('room:bestof7', () =>
+    withRoom((room, seatId) => game.startBestOf7(room, seatId, deps)));
 
   socket.on('disconnect', () => {
     const { code, seatId } = socket.data;

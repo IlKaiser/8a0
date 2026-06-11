@@ -29,6 +29,7 @@ export interface DraftPhaseState {
 }
 
 export interface TournamentPhaseState {
+  kind: 'cup' | 'series';
   matches: MatchResult[]; // round-robin matches, final last; simulated upfront
   revealedCount: number; // matches fully played back
   playingIndex: number | null; // match currently in live playback
@@ -169,6 +170,7 @@ export function snapshot(room: Room): RoomSnapshot {
       : null,
     tournament: t
       ? {
+          kind: t.kind,
           revealed,
           playing: t.playingIndex !== null ? t.matches[t.playingIndex] : null,
           playStartedAt: t.playStartedAt,
