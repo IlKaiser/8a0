@@ -92,6 +92,11 @@ describe('simulateMatch', () => {
       if (r.homeGoals === r.awayGoals) {
         expect(r.penalties).toBeDefined();
         expect(r.penalties!.home).not.toBe(r.penalties!.away);
+        // kick log is consistent with the shootout score
+        const { kicks, home, away } = r.penalties!;
+        expect(kicks.home.length).toBeGreaterThanOrEqual(5);
+        expect(kicks.home.filter(Boolean)).toHaveLength(home);
+        expect(kicks.away.filter(Boolean)).toHaveLength(away);
       } else {
         expect(r.penalties).toBeUndefined();
       }

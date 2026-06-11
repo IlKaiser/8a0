@@ -1,33 +1,91 @@
 import { useEffect, useState } from 'react';
-import type { MatchResult, RoomSnapshot } from '@otto/shared';
+import type { MatchResult, RoomSnapshot, TeamScores } from '@otto/shared';
+import { PEN_INTRO_MS, PEN_KICK_MS, teamScores } from '@otto/shared';
 import Pitch from '../components/Pitch';
 import Standings from '../components/Standings';
 import type { RoomApi } from '../useRoom';
 
-/** Match minute (0..90) derived from the server's playback start time. */
-function useMatchClock(startedAt: number | null, durationMs: number): number {
+/** Milliseconds since the server started playing the current match. */
+function useElapsed(startedAt: number | null): number {
   const [, force] = useState(0);
   useEffect(() => {
     if (startedAt === null) return;
-    const t = window.setInterval(() => force((x) => x + 1), 200);
+    const t = window.setInterval(() => force((x) => x + 1), 150);
     return () => window.clearInterval(t);
   }, [startedAt]);
-  if (startedAt === null) return 0;
-  return Math.min(90, Math.floor(((Date.now() - startedAt) / durationMs) * 90));
+  return startedAt === null ? 0 : Math.max(0, Date.now() - startedAt);
+}
+
+const fmtStrength = (s: TeamScores): string =>
+  `ATT ${s.attack.toFixed(1)} · DEF ${s.defense.toFixed(1)}`;
+
+interface ShootoutProps {
+  match: MatchResult;
+  kicksShown: number; // interleaved: home kick 1, away kick 1, home kick 2, …
+  nameOf: (seatId: string) => string;
+}
+
+function Shootout({ match, kicksShown, nameOf }: ShootoutProps) {
+  const pens = match.penalties!;
+  const visible = (side: 'home' | 'away'): boolean[] =>
+    pens.kicks[side].slice(0, side === 'home' ? Math.ceil(kicksShown / 2) : Math.floor(kicksShown / 2));
+  const total = pens.kicks.home.length + pens.kicks.away.length;
+  const done = kicksShown >= total;
+  return (
+    <div className="shootout" data-testid="shootout">
+      <p className="shootout-title">Penalty shootout</p>
+      {(['home', 'away'] as const).map((side) => (
+        <div key={side} className="pen-row">
+          <span className="pen-name">
+            {nameOf(side === 'home' ? match.homeSeatId : match.awaySeatId)}
+          </span>
+          <span className="pen-kicks">
+            {visible(side).map((scored, i) => (
+              <span key={i} className={`pen-dot ${scored ? 'scored' : 'missed'}`}>
+                {scored ? '⚽' : '❌'}
+              </span>
+            ))}
+          </span>
+          <span className="pen-score">{visible(side).filter(Boolean).length}</span>
+        </div>
+      ))}
+      {done && (
+        <p className="pens">
+          {nameOf(pens.home > pens.away ? match.homeSeatId : match.awaySeatId)} wins
+          the shootout {pens.home} – {pens.away}!
+        </p>
+      )}
+    </div>
+  );
 }
 
 interface LiveMatchProps {
   match: MatchResult;
-  minute: number;
+  elapsedMs: number;
+  playDurationMs: number;
   nameOf: (seatId: string) => string;
+  strengthOf: (seatId: string) => TeamScores | null;
   label?: string;
 }
 
-function LiveMatch({ match, minute, nameOf, label }: LiveMatchProps) {
+function LiveMatch({ match, elapsedMs, playDurationMs, nameOf, strengthOf, label }: LiveMatchProps) {
+  const minute = Math.min(90, Math.floor((elapsedMs / playDurationMs) * 90));
+  const fullTime = minute >= 90;
   const seen = match.events.filter((e) => e.minute <= minute);
   const hg = seen.filter((e) => e.seatId === match.homeSeatId).length;
   const ag = seen.filter((e) => e.seatId === match.awaySeatId).length;
-  const fullTime = minute >= 90;
+  const kicksShown = match.penalties
+    ? Math.max(0, Math.floor((elapsedMs - playDurationMs - PEN_INTRO_MS) / PEN_KICK_MS))
+    : 0;
+  const side = (id: string) => {
+    const s = strengthOf(id);
+    return (
+      <span className="team">
+        {nameOf(id)}
+        {s && <small className="team-str">{fmtStrength(s)}</small>}
+      </span>
+    );
+  };
   return (
     <section className="live-match" data-testid="live-match">
       <header className="live-head">
@@ -36,9 +94,9 @@ function LiveMatch({ match, minute, nameOf, label }: LiveMatchProps) {
         <span className="live-minute">{fullTime ? 'FT' : `${minute}′`}</span>
       </header>
       <div className="live-score">
-        <span className="team">{nameOf(match.homeSeatId)}</span>
+        {side(match.homeSeatId)}
         <span className="score">{hg} – {ag}</span>
-        <span className="team">{nameOf(match.awaySeatId)}</span>
+        {side(match.awaySeatId)}
       </div>
       <ol className="goal-feed">
         {seen.map((e, i) => (
@@ -48,9 +106,7 @@ function LiveMatch({ match, minute, nameOf, label }: LiveMatchProps) {
         ))}
       </ol>
       {fullTime && match.penalties && (
-        <p className="pens">
-          Penalty shootout: {match.penalties.home} – {match.penalties.away}
-        </p>
+        <Shootout match={match} kicksShown={kicksShown} nameOf={nameOf} />
       )}
     </section>
   );
@@ -60,8 +116,13 @@ export default function Tournament({ api, snap }: { api: RoomApi; snap: RoomSnap
   const [copied, setCopied] = useState(false);
   const t = snap.tournament;
   const me = snap.seats.find((s) => s.id === api.seatId);
-  const minute = useMatchClock(t?.playStartedAt ?? null, t?.playDurationMs ?? 1);
+  const elapsedMs = useElapsed(t?.playStartedAt ?? null);
   if (!t) return null;
+
+  const strengthOf = (id: string): TeamScores | null => {
+    const seat = snap.seats.find((s) => s.id === id);
+    return seat ? teamScores(seat.slots) : null;
+  };
 
   const name = (id: string): string =>
     snap.seats.find((s) => s.id === id)?.nickname ?? '?';
@@ -116,7 +177,8 @@ export default function Tournament({ api, snap }: { api: RoomApi; snap: RoomSnap
         </p>
       )}
       {t.playing && (
-        <LiveMatch match={t.playing} minute={minute} nameOf={name}
+        <LiveMatch match={t.playing} elapsedMs={elapsedMs}
+          playDurationMs={t.playDurationMs} nameOf={name} strengthOf={strengthOf}
           label={series ? `GAME ${t.revealed.length + 1}` : undefined} />
       )}
       <section className="matches">
@@ -140,7 +202,10 @@ export default function Tournament({ api, snap }: { api: RoomApi; snap: RoomSnap
           <section className="lineups">
             {snap.seats.map((s) => (
               <div key={s.id}>
-                <h4>{s.nickname} · {s.formation}</h4>
+                <h4>
+                  {s.nickname} · {s.formation}
+                  <span className="team-str">{fmtStrength(teamScores(s.slots))}</span>
+                </h4>
                 <Pitch slots={s.slots} />
               </div>
             ))}

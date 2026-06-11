@@ -58,7 +58,7 @@ describe('game flow', () => {
     expect(room.tournament!.matches).toHaveLength(1); // 2 players -> final only
     expect(room.seats.every((s) => s.slots.every((sl) => sl.player !== null))).toBe(true);
 
-    vi.advanceTimersByTime(100);
+    vi.advanceTimersByTime(60_000);
     expect(room.phase).toBe('results');
     expect(room.tournament!.championSeatId).toBeTruthy();
   });
@@ -106,7 +106,7 @@ describe('game flow', () => {
     const deps = depsWith();
     const { room, host, guest } = setupDraft(deps);
     draftToCompletion(room, deps);
-    vi.advanceTimersByTime(100);
+    vi.advanceTimersByTime(60_000);
     expect(room.phase).toBe('results');
     const teamsBefore = room.seats.map((s) => s.slots.map((sl) => sl.player!.id).join(','));
 
@@ -116,7 +116,7 @@ describe('game flow', () => {
     expect(room.tournament!.kind).toBe('cup');
     expect(room.seats.map((s) => s.slots.map((sl) => sl.player!.id).join(',')))
       .toEqual(teamsBefore);
-    vi.advanceTimersByTime(100);
+    vi.advanceTimersByTime(60_000);
     expect(room.phase).toBe('results');
     expect(room.tournament!.championSeatId).toBeTruthy();
   });
@@ -125,7 +125,7 @@ describe('game flow', () => {
     const deps = depsWith();
     const { room, host, guest } = setupDraft(deps);
     draftToCompletion(room, deps);
-    vi.advanceTimersByTime(100);
+    vi.advanceTimersByTime(60_000);
     expect(room.phase).toBe('results');
 
     expect(() => game.startBestOf7(room, guest.id, deps)).toThrow(/host/);
@@ -144,7 +144,7 @@ describe('game flow', () => {
     const clincher = game.matchWinner(matches[matches.length - 1]);
     expect(wins[clincher]).toBe(4);
 
-    vi.advanceTimersByTime(1000); // play out all games (playMs 5 + gap 2 each)
+    vi.advanceTimersByTime(300_000); // play out all games incl. shootout time
     expect(room.phase).toBe('results');
     expect(room.tournament!.championSeatId).toBe(clincher);
   });
@@ -153,7 +153,7 @@ describe('game flow', () => {
     const deps = depsWith();
     const { room, host } = setupDraft(deps);
     draftToCompletion(room, deps);
-    vi.advanceTimersByTime(100);
+    vi.advanceTimersByTime(60_000);
     expect(room.phase).toBe('results');
     game.rematch(room, host.id, deps);
     expect(room.phase).toBe('formation');

@@ -209,3 +209,34 @@ fieldset { border: 1px solid var(--line); border-radius: var(--radius); margin: 
 }
 .series-score strong { color: var(--accent); font-size: 1.5rem; }
 .series-score em { color: var(--text-dim); font-style: normal; font-size: 0.9rem; }
+
+.team-str {
+  display: inline-block; margin-left: 10px;
+  color: var(--accent-2); font-size: 0.72em; font-weight: 700;
+  letter-spacing: 0.06em; white-space: nowrap;
+}
+.live-score .team { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.live-score .team .team-str { margin-left: 0; }
+
+.shootout {
+  margin-top: 12px; padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.3); border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+}
+.shootout-title {
+  margin: 0 0 8px; color: var(--accent); font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.85rem;
+}
+.pen-row {
+  display: grid; grid-template-columns: 120px 1fr 30px;
+  align-items: center; gap: 10px; padding: 3px 0;
+}
+.pen-name { font-weight: 700; }
+.pen-kicks { display: flex; gap: 6px; min-height: 1.3em; }
+.pen-dot { animation: pen-pop 0.35s ease; }
+.pen-dot.missed { filter: saturate(2); }
+@keyframes pen-pop {
+  from { transform: scale(0.2) rotate(-90deg); opacity: 0; }
+  60% { transform: scale(1.35); }
+}
+.pen-score { text-align: right; font-weight: 800; color: var(--accent); }

@@ -62,6 +62,37 @@ export function slotAccepts(slotPos: Position, playerPos: Position): boolean {
   return slotPos === playerPos;
 }
 
+// ---------- Team strength (shared so the UI shows the simulator's numbers) ----------
+export const ATTACK_W: Record<Position, number> = { GK: 0, DF: 0.2, MF: 0.6, FW: 1 };
+export const DEFENSE_W: Record<Position, number> = { GK: 1, DF: 1, MF: 0.5, FW: 0 };
+
+export interface TeamScores { attack: number; defense: number }
+
+/** Weighted rating means over the filled slots. */
+export function teamScores(slots: Slot[]): TeamScores {
+  let att = 0; let attW = 0; let def = 0; let defW = 0;
+  for (const slot of slots) {
+    if (!slot.player) continue;
+    att += slot.player.rating * ATTACK_W[slot.position]; attW += ATTACK_W[slot.position];
+    def += slot.player.rating * DEFENSE_W[slot.position]; defW += DEFENSE_W[slot.position];
+  }
+  return {
+    attack: attW ? att / attW : 0,
+    defense: defW ? def / defW : 0,
+  };
+}
+
+// ---------- Penalty shootout playback timing (server schedules, client animates) ----------
+export const PEN_INTRO_MS = 1500;
+export const PEN_KICK_MS = 700;
+export const PEN_OUTRO_MS = 1500;
+
+export function penaltyExtraMs(m: MatchResult): number {
+  if (!m.penalties) return 0;
+  const kicks = m.penalties.kicks.home.length + m.penalties.kicks.away.length;
+  return PEN_INTRO_MS + kicks * PEN_KICK_MS + PEN_OUTRO_MS;
+}
+
 // ---------- Snapshot (server -> client view model) ----------
 export interface SeatView {
   id: string;
@@ -103,7 +134,12 @@ export interface MatchResult {
   homeGoals: number;
   awayGoals: number;
   events: GoalEvent[]; // goals in minute order
-  penalties?: { home: number; away: number }; // any match level after 90'
+  penalties?: {
+    home: number;
+    away: number;
+    // per-round kick outcomes, both teams kick every round (true = scored)
+    kicks: { home: boolean[]; away: boolean[] };
+  };
   isFinal: boolean;
   seed: number;
 }

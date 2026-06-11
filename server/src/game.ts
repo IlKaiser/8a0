@@ -1,6 +1,7 @@
 import type { FormationId, GameMode, MatchResult } from '@otto/shared';
 import {
   FORMATIONS, MIN_SEATS, TEAM_SIZE, TURN_TIMER_CHOICES, WILDCARDS_PER_PLAYER,
+  penaltyExtraMs,
 } from '@otto/shared';
 import type { Squad } from './data.js';
 import { autoPick, eligibleSlotIndices, personKey, rollSquad, snakeOrder } from './draft.js';
@@ -202,6 +203,8 @@ function runPlayback(room: Room, deps: GameDeps): void {
     t.playStartedAt = Date.now();
     room.lastActivity = Date.now();
     deps.broadcast(room);
+    // a drawn match gets extra playback time for the shootout animation
+    const playTime = t.playDurationMs + penaltyExtraMs(t.matches[t.playingIndex]);
     t.timer = setTimeout(() => {
       t.playingIndex = null;
       t.playStartedAt = null;
@@ -216,7 +219,7 @@ function runPlayback(room: Room, deps: GameDeps): void {
         deps.broadcast(room);
         t.timer = setTimeout(playNext, deps.gapMs ?? DEFAULT_GAP_MS);
       }
-    }, t.playDurationMs);
+    }, playTime);
   };
   playNext();
 }

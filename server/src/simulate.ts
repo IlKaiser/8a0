@@ -1,4 +1,7 @@
 import type { GoalEvent, MatchResult, Position, Slot } from '@otto/shared';
+import { teamScores } from '@otto/shared';
+
+export { teamScores, type TeamScores } from '@otto/shared';
 
 /** Small fast seeded PRNG (public-domain mulberry32). */
 export function mulberry32(seed: number): () => number {
@@ -18,24 +21,6 @@ export function poisson(lambda: number, rng: () => number): number {
   let p = 1;
   do { k++; p *= rng(); } while (p > limit);
   return k - 1;
-}
-
-const ATTACK_W: Record<Position, number> = { GK: 0, DF: 0.2, MF: 0.6, FW: 1 };
-const DEFENSE_W: Record<Position, number> = { GK: 1, DF: 1, MF: 0.5, FW: 0 };
-
-export interface TeamScores { attack: number; defense: number }
-
-export function teamScores(slots: Slot[]): TeamScores {
-  let att = 0; let attW = 0; let def = 0; let defW = 0;
-  for (const slot of slots) {
-    if (!slot.player) continue;
-    att += slot.player.rating * ATTACK_W[slot.position]; attW += ATTACK_W[slot.position];
-    def += slot.player.rating * DEFENSE_W[slot.position]; defW += DEFENSE_W[slot.position];
-  }
-  return {
-    attack: attW ? att / attW : 0,
-    defense: defW ? def / defW : 0,
-  };
 }
 
 const BASE_GOALS = 1.35;
@@ -64,27 +49,36 @@ function keeperRating(slots: Slot[]): number {
   return gk?.player?.rating ?? 70;
 }
 
+export interface ShootoutResult {
+  home: number;
+  away: number;
+  kicks: { home: boolean[]; away: boolean[] };
+}
+
 export function penaltyShootout(
   home: Slot[],
   away: Slot[],
   rng: () => number,
-): { home: number; away: number } {
+): ShootoutResult {
   const hk = bestKickers(home); const ak = bestKickers(away);
   const hKeeper = keeperRating(home); const aKeeper = keeperRating(away);
   const convert = (kicker: number, keeper: number): boolean => {
     const p = Math.min(0.92, Math.max(0.4, 0.72 + 0.004 * (kicker - keeper)));
     return rng() < p;
   };
+  const kicks = { home: [] as boolean[], away: [] as boolean[] };
   let h = 0; let a = 0;
   let round = 0;
   // 5 regulation rounds, then sudden death until decided.
   while (round < 5 || h === a) {
-    if (convert(hk[round % hk.length], aKeeper)) h++;
-    if (convert(ak[round % ak.length], hKeeper)) a++;
+    const hScored = convert(hk[round % hk.length], aKeeper);
+    const aScored = convert(ak[round % ak.length], hKeeper);
+    kicks.home.push(hScored); if (hScored) h++;
+    kicks.away.push(aScored); if (aScored) a++;
     round++;
-    if (round > 30) { h++; break; } // hard stop, statistically unreachable
+    if (round > 30) { kicks.home.push(true); h++; break; } // statistically unreachable
   }
-  return { home: h, away: a };
+  return { home: h, away: a, kicks };
 }
 
 // Likelihood of scoring a goal, by the slot occupied.

@@ -48,7 +48,13 @@ describe('computeStandings', () => {
   });
 
   it('a penalty shootout win counts as a full win (no draws)', () => {
-    const m = { ...match('a', 'b', 1, 1), penalties: { home: 4, away: 3 } };
+    const m = {
+      ...match('a', 'b', 1, 1),
+      penalties: {
+        home: 4, away: 3,
+        kicks: { home: [true, true, true, true], away: [true, true, true, false] },
+      },
+    };
     const rows = computeStandings(['a', 'b'], [m]);
     const a = rows.find((r) => r.seatId === 'a')!;
     const b = rows.find((r) => r.seatId === 'b')!;

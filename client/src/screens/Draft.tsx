@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { Position, RoomSnapshot } from '@otto/shared';
-import { slotAccepts } from '@otto/shared';
+import { slotAccepts, teamScores } from '@otto/shared';
 import Pitch from '../components/Pitch';
 import SquadCard from '../components/SquadCard';
 import type { RoomApi } from '../useRoom';
@@ -54,7 +54,15 @@ export default function Draft({ api, snap }: { api: RoomApi; snap: RoomSnapshot 
             selectedId={selectedId} onSelect={setSelectedId} />
         )}
         <section className="my-team">
-          <h3>Your XI · {me.formation}</h3>
+          <h3>
+            Your XI · {me.formation}
+            {snap.mode !== 'memory' && (
+              <span className="team-str">
+                ATT {teamScores(me.slots).attack.toFixed(1)} · DEF{' '}
+                {teamScores(me.slots).defense.toFixed(1)}
+              </span>
+            )}
+          </h3>
           <p className="hint">
             {myTurn
               ? selected
