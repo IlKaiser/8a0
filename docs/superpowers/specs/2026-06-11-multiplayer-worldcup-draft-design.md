@@ -43,9 +43,11 @@ rooms identified by a short code.
 - On a turn:
   1. Server rolls a random (edition, national team) squad from the dataset and
      broadcasts it to the whole room.
-  2. The active player picks one player from that squad whose position
-     (GK/DF/MF/FW) fits an open slot in their formation. The pick is broadcast
-     and the player is removed from the global pool.
+  2. The active player picks one player from that squad to fill an open slot
+     in their formation. **Eligibility:** a slot accepts its exact position at
+     full rating, or an adjacent outfield position (DF↔MF, MF↔FW) at a rating
+     penalty; GK slots accept only GK and a GK fits only the GK slot. The pick
+     is broadcast and the player is removed from the global pool.
   3. **Wildcards:** each player has 3; spending one rerolls the squad.
   4. **Free reroll:** if the rolled squad contains no eligible player for the
      active player's open slots, the server rerolls automatically at no cost.
@@ -74,9 +76,8 @@ Modeled on seteazero.wiki's stated factors: squad overall quality, formation
 balance, positional strength. All server-side.
 
 - **Effective rating** per player = base rating − out-of-position penalty
-  (e.g., −15 if a FW fills a DF slot, −8 for adjacent positions MF↔FW, MF↔DF;
-  GK is never auto-assigned outfield and vice versa — eligibility already
-  prevents GK mismatches).
+  (−8 for adjacent-position placement DF↔MF or MF↔FW, the only mismatches
+  draft eligibility allows; GK mismatches are impossible by rule).
 - **Attack score** = weighted mean of FW (high weight), MF (medium), DF (low).
 - **Defense score** = weighted mean of GK (high), DF (high), MF (medium).
 - **Balance bonus** small bonus when all 11 slots are filled by natural-position
