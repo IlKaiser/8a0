@@ -30,10 +30,11 @@ describe('eligibleSlotIndices', () => {
     slots[0].player = P('gk1', 'GK', 80);
     expect(eligibleSlotIndices(slots, 'GK')).toEqual([]);
   });
-  it('outfield players fit natural + adjacent open slots only', () => {
+  it('outfield players fit only their exact position', () => {
     const slots = emptySlots(); // 4-3-3: GK, 4xDF(1-4), 3xMF(5-7), 3xFW(8-10)
-    expect(eligibleSlotIndices(slots, 'FW')).toEqual([5, 6, 7, 8, 9, 10]);
-    expect(eligibleSlotIndices(slots, 'DF')).toEqual([1, 2, 3, 4, 5, 6, 7]);
+    expect(eligibleSlotIndices(slots, 'FW')).toEqual([8, 9, 10]);
+    expect(eligibleSlotIndices(slots, 'MF')).toEqual([5, 6, 7]);
+    expect(eligibleSlotIndices(slots, 'DF')).toEqual([1, 2, 3, 4]);
   });
 });
 
@@ -65,19 +66,18 @@ describe('squadHasEligible / rollSquad', () => {
 });
 
 describe('autoPick', () => {
-  it('picks highest effective rating and prefers the natural slot', () => {
+  it('picks the highest-rated player with an open natural slot', () => {
     const slots = emptySlots();
     const squad = [P('mf', 'MF', 90), P('fw', 'FW', 88)];
     const pick = autoPick(squad, slots);
-    // MF 90 natural beats FW 88; natural MF slot indices are 5..7
-    expect(pick).toEqual({ playerId: 'mf', slotIndex: 5 });
+    expect(pick).toEqual({ playerId: 'mf', slotIndex: 5 }); // first MF slot
   });
-  it('falls back to adjacent slot when natural slots are full', () => {
+  it('skips players whose position is already full', () => {
     const slots = emptySlots();
     for (const i of [5, 6, 7]) slots[i].player = P(`m${i}`, 'MF', 70);
-    const pick = autoPick([P('mf2', 'MF', 95)], slots);
-    // MF natural full; adjacent open: DF(1) and FW(8); takes first eligible
-    expect(pick?.playerId).toBe('mf2');
-    expect([1, 8]).toContain(pick?.slotIndex);
+    // MF slots full: the 95-rated MF is not pickable, the 80 FW is
+    expect(autoPick([P('mf2', 'MF', 95), P('fw2', 'FW', 80)], slots))
+      .toEqual({ playerId: 'fw2', slotIndex: 8 });
+    expect(autoPick([P('mf3', 'MF', 95)], slots)).toBeNull();
   });
 });

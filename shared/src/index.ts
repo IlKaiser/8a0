@@ -50,7 +50,6 @@ export const FORMATIONS: Record<FormationId, Position[]> = {
 };
 
 // ---------- Rules constants ----------
-export const OOP_PENALTY = 8;
 export const WILDCARDS_PER_PLAYER = 3;
 export const TEAM_SIZE = 11;
 export const MIN_SEATS = 2;
@@ -58,24 +57,9 @@ export const MAX_SEATS = 8;
 export const TURN_TIMER_CHOICES = [0, 30, 60] as const; // seconds, 0 = off
 
 // ---------- Eligibility ----------
-const ADJACENT: Record<Position, readonly Position[]> = {
-  GK: [],
-  DF: ['MF'],
-  MF: ['DF', 'FW'],
-  FW: ['MF'],
-};
-
+/** Strict: a slot accepts only its exact position (no FW in midfield). */
 export function slotAccepts(slotPos: Position, playerPos: Position): boolean {
-  if (slotPos === playerPos) return true;
-  return ADJACENT[slotPos].includes(playerPos);
-}
-
-export function effectiveRating(
-  rating: number,
-  playerPos: Position,
-  slotPos: Position,
-): number {
-  return playerPos === slotPos ? rating : rating - OOP_PENALTY;
+  return slotPos === playerPos;
 }
 
 // ---------- Snapshot (server -> client view model) ----------
@@ -107,12 +91,19 @@ export interface DraftView {
   log: PickLogEntry[];
 }
 
+export interface GoalEvent {
+  minute: number; // 1..90
+  scorerName: string;
+  seatId: string; // scoring team
+}
+
 export interface MatchResult {
   homeSeatId: string;
   awaySeatId: string;
   homeGoals: number;
   awayGoals: number;
-  penalties?: { home: number; away: number };
+  events: GoalEvent[]; // goals in minute order
+  penalties?: { home: number; away: number }; // any match level after 90'
   isFinal: boolean;
   seed: number;
 }
@@ -129,10 +120,13 @@ export interface StandingRow {
 }
 
 export interface TournamentView {
-  revealed: MatchResult[];
+  revealed: MatchResult[]; // fully played matches
+  playing: MatchResult | null; // match currently being played out live
+  playStartedAt: number | null; // epoch ms when live playback began
+  playDurationMs: number; // wall-clock length of one 90' playback
   totalMatches: number; // round-robin matches + 1 final
-  standings: StandingRow[]; // recomputed from revealed round-robin matches
-  final: MatchResult | null; // set once revealed
+  standings: StandingRow[]; // recomputed from fully played matches
+  final: MatchResult | null; // set once fully played
   championSeatId: string | null;
 }
 

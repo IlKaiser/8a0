@@ -21,7 +21,7 @@ function testSquads(): Squad[] {
 }
 
 const depsWith = (over: Partial<game.GameDeps> = {}): game.GameDeps =>
-  ({ squads: testSquads(), broadcast: vi.fn(), revealMs: 5, ...over });
+  ({ squads: testSquads(), broadcast: vi.fn(), playMs: 5, gapMs: 2, ...over });
 
 beforeEach(() => vi.useFakeTimers());
 afterEach(() => vi.useRealTimers());

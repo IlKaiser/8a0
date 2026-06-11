@@ -3,7 +3,7 @@ import type { MatchResult } from '@otto/shared';
 import { computeStandings, roundRobinFixtures } from '../src/tournament.js';
 
 const match = (h: string, a: string, hg: number, ag: number): MatchResult =>
-  ({ homeSeatId: h, awaySeatId: a, homeGoals: hg, awayGoals: ag, isFinal: false, seed: 0 });
+  ({ homeSeatId: h, awaySeatId: a, homeGoals: hg, awayGoals: ag, events: [], isFinal: false, seed: 0 });
 
 describe('roundRobinFixtures', () => {
   it('every pair meets exactly once', () => {
@@ -45,5 +45,15 @@ describe('computeStandings', () => {
     const rows = computeStandings(['a', 'b', 'c', 'd'], four);
     expect(rows[0].seatId).toBe('b'); // h2h winner above a
     expect(rows[1].seatId).toBe('a');
+  });
+
+  it('a penalty shootout win counts as a full win (no draws)', () => {
+    const m = { ...match('a', 'b', 1, 1), penalties: { home: 4, away: 3 } };
+    const rows = computeStandings(['a', 'b'], [m]);
+    const a = rows.find((r) => r.seatId === 'a')!;
+    const b = rows.find((r) => r.seatId === 'b')!;
+    expect(a).toMatchObject({ won: 1, drawn: 0, lost: 0, points: 3 });
+    expect(b).toMatchObject({ won: 0, drawn: 0, lost: 1, points: 0 });
+    expect(rows[0].seatId).toBe('a');
   });
 });

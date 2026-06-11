@@ -1,7 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  FORMATIONS, FORMATION_IDS, OOP_PENALTY, effectiveRating, slotAccepts,
-} from '../src/index.js';
+import { FORMATIONS, FORMATION_IDS, slotAccepts } from '../src/index.js';
 
 describe('formations', () => {
   it('defines all 8 formations with exactly 11 slots and 1 GK', () => {
@@ -22,27 +20,18 @@ describe('formations', () => {
 });
 
 describe('slotAccepts', () => {
-  it('accepts exact position', () => {
+  it('accepts only the exact position', () => {
     expect(slotAccepts('FW', 'FW')).toBe(true);
     expect(slotAccepts('GK', 'GK')).toBe(true);
+    expect(slotAccepts('MF', 'MF')).toBe(true);
+    expect(slotAccepts('DF', 'DF')).toBe(true);
   });
-  it('accepts adjacent outfield positions', () => {
-    expect(slotAccepts('DF', 'MF')).toBe(true);
-    expect(slotAccepts('MF', 'DF')).toBe(true);
-    expect(slotAccepts('MF', 'FW')).toBe(true);
-    expect(slotAccepts('FW', 'MF')).toBe(true);
-  });
-  it('rejects non-adjacent and any GK mismatch', () => {
-    expect(slotAccepts('DF', 'FW')).toBe(false);
-    expect(slotAccepts('FW', 'DF')).toBe(false);
+  it('rejects every mismatch, including adjacent outfield positions', () => {
+    expect(slotAccepts('MF', 'FW')).toBe(false); // no striker in midfield
+    expect(slotAccepts('DF', 'MF')).toBe(false);
+    expect(slotAccepts('MF', 'DF')).toBe(false);
+    expect(slotAccepts('FW', 'MF')).toBe(false);
     expect(slotAccepts('GK', 'DF')).toBe(false);
     expect(slotAccepts('MF', 'GK')).toBe(false);
-  });
-});
-
-describe('effectiveRating', () => {
-  it('full rating in natural position, penalty otherwise', () => {
-    expect(effectiveRating(90, 'FW', 'FW')).toBe(90);
-    expect(effectiveRating(90, 'MF', 'FW')).toBe(90 - OOP_PENALTY);
   });
 });

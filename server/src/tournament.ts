@@ -30,17 +30,19 @@ export function computeStandings(
       seatId, played: 0, won: 0, drawn: 0, lost: 0, gf: 0, ga: 0, points: 0,
     }]),
   );
-  const apply = (id: string, gf: number, ga: number): void => {
+  const apply = (id: string, gf: number, ga: number, wonShootout: boolean | null): void => {
     const r = rows.get(id);
     if (!r) return;
     r.played++; r.gf += gf; r.ga += ga;
-    if (gf > ga) { r.won++; r.points += 3; }
-    else if (gf === ga) { r.drawn++; r.points += 1; }
+    // a shootout win counts as a win: this game has no draws
+    if (gf > ga || wonShootout === true) { r.won++; r.points += 3; }
+    else if (gf === ga && wonShootout === null) { r.drawn++; r.points += 1; }
     else r.lost++;
   };
   for (const m of results.filter((m) => !m.isFinal)) {
-    apply(m.homeSeatId, m.homeGoals, m.awayGoals);
-    apply(m.awaySeatId, m.awayGoals, m.homeGoals);
+    const homeShootout = m.penalties ? m.penalties.home > m.penalties.away : null;
+    apply(m.homeSeatId, m.homeGoals, m.awayGoals, homeShootout);
+    apply(m.awaySeatId, m.awayGoals, m.homeGoals, homeShootout === null ? null : !homeShootout);
   }
 
   const h2h = (a: string, b: string): number => {
@@ -49,8 +51,14 @@ export function computeStandings(
         ((m.homeSeatId === a && m.awaySeatId === b) ||
          (m.homeSeatId === b && m.awaySeatId === a)),
     );
-    if (!m || m.homeGoals === m.awayGoals) return 0;
-    const winner = m.homeGoals > m.awayGoals ? m.homeSeatId : m.awaySeatId;
+    if (!m) return 0;
+    const homeWon = m.homeGoals !== m.awayGoals
+      ? m.homeGoals > m.awayGoals
+      : m.penalties
+        ? m.penalties.home > m.penalties.away
+        : null;
+    if (homeWon === null) return 0;
+    const winner = homeWon ? m.homeSeatId : m.awaySeatId;
     return winner === a ? -1 : 1; // negative sorts `a` first
   };
 

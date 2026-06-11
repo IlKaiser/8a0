@@ -30,9 +30,12 @@ export interface DraftPhaseState {
 
 export interface TournamentPhaseState {
   matches: MatchResult[]; // round-robin matches, final last; simulated upfront
-  revealedCount: number;
+  revealedCount: number; // matches fully played back
+  playingIndex: number | null; // match currently in live playback
+  playStartedAt: number | null;
+  playDurationMs: number;
   championSeatId: string | null;
-  timer: ReturnType<typeof setInterval> | null;
+  timer: ReturnType<typeof setTimeout> | null;
 }
 
 export interface Room {
@@ -116,7 +119,7 @@ export function gcRooms(now: number = Date.now()): void {
     const abandoned = room.seats.every((s) => !s.connected);
     if (idle > ROOM_TTL_MS || (abandoned && idle > ABANDONED_TTL_MS)) {
       if (room.draft?.timer) clearTimeout(room.draft.timer);
-      if (room.tournament?.timer) clearInterval(room.tournament.timer);
+      if (room.tournament?.timer) clearTimeout(room.tournament.timer);
       rooms.delete(code);
     }
   }
@@ -167,6 +170,9 @@ export function snapshot(room: Room): RoomSnapshot {
     tournament: t
       ? {
           revealed,
+          playing: t.playingIndex !== null ? t.matches[t.playingIndex] : null,
+          playStartedAt: t.playStartedAt,
+          playDurationMs: t.playDurationMs,
           totalMatches: t.matches.length,
           standings: computeStandings(room.seats.map((s) => s.id), revealed),
           final: revealedFinal,

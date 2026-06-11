@@ -1,5 +1,4 @@
-import type { MatchResult, Position, Slot } from '@otto/shared';
-import { effectiveRating } from '@otto/shared';
+import type { GoalEvent, MatchResult, Position, Slot } from '@otto/shared';
 
 /** Small fast seeded PRNG (public-domain mulberry32). */
 export function mulberry32(seed: number): () => number {
@@ -23,24 +22,19 @@ export function poisson(lambda: number, rng: () => number): number {
 
 const ATTACK_W: Record<Position, number> = { GK: 0, DF: 0.2, MF: 0.6, FW: 1 };
 const DEFENSE_W: Record<Position, number> = { GK: 1, DF: 1, MF: 0.5, FW: 0 };
-const BALANCE_BONUS = 2;
 
 export interface TeamScores { attack: number; defense: number }
 
 export function teamScores(slots: Slot[]): TeamScores {
   let att = 0; let attW = 0; let def = 0; let defW = 0;
-  let allNatural = true;
   for (const slot of slots) {
-    if (!slot.player) { allNatural = false; continue; }
-    const eff = effectiveRating(slot.player.rating, slot.player.position, slot.position);
-    if (slot.player.position !== slot.position) allNatural = false;
-    att += eff * ATTACK_W[slot.position]; attW += ATTACK_W[slot.position];
-    def += eff * DEFENSE_W[slot.position]; defW += DEFENSE_W[slot.position];
+    if (!slot.player) continue;
+    att += slot.player.rating * ATTACK_W[slot.position]; attW += ATTACK_W[slot.position];
+    def += slot.player.rating * DEFENSE_W[slot.position]; defW += DEFENSE_W[slot.position];
   }
-  const bonus = allNatural ? BALANCE_BONUS : 0;
   return {
-    attack: (attW ? att / attW : 0) + bonus,
-    defense: (defW ? def / defW : 0) + bonus,
+    attack: attW ? att / attW : 0,
+    defense: defW ? def / defW : 0,
   };
 }
 
@@ -88,6 +82,34 @@ export function penaltyShootout(
   return { home: h, away: a };
 }
 
+// Likelihood of scoring a goal, by the slot occupied.
+const GOAL_W: Record<Position, number> = { GK: 0, DF: 0.7, MF: 2, FW: 4 };
+
+function pickScorer(slots: Slot[], rng: () => number): string {
+  const cands = slots.filter((s) => s.player && s.position !== 'GK');
+  if (cands.length === 0) return '???';
+  const weights = cands.map((s) => GOAL_W[s.position] * (s.player!.rating / 80));
+  let r = rng() * weights.reduce((a, b) => a + b, 0);
+  for (let i = 0; i < cands.length; i++) {
+    r -= weights[i];
+    if (r <= 0) return cands[i].player!.name;
+  }
+  return cands[cands.length - 1].player!.name;
+}
+
+function goalEvents(
+  slots: Slot[],
+  seatId: string,
+  goals: number,
+  rng: () => number,
+): GoalEvent[] {
+  return Array.from({ length: goals }, () => ({
+    minute: 1 + Math.floor(rng() * 90),
+    scorerName: pickScorer(slots, rng),
+    seatId,
+  }));
+}
+
 export interface MatchOptions {
   homeSeatId: string;
   awaySeatId: string;
@@ -100,15 +122,21 @@ export function simulateMatch(home: Slot[], away: Slot[], opts: MatchOptions): M
   const hs = teamScores(home); const as = teamScores(away);
   const homeGoals = poisson(expectedGoals(hs.attack, as.defense), rng);
   const awayGoals = poisson(expectedGoals(as.attack, hs.defense), rng);
+  const events = [
+    ...goalEvents(home, opts.homeSeatId, homeGoals, rng),
+    ...goalEvents(away, opts.awaySeatId, awayGoals, rng),
+  ].sort((a, b) => a.minute - b.minute);
   const result: MatchResult = {
     homeSeatId: opts.homeSeatId,
     awaySeatId: opts.awaySeatId,
     homeGoals,
     awayGoals,
+    events,
     isFinal: opts.isFinal,
     seed: opts.seed,
   };
-  if (opts.isFinal && homeGoals === awayGoals) {
+  if (homeGoals === awayGoals) {
+    // no draws in this game: every level match goes to a shootout
     result.penalties = penaltyShootout(home, away, rng);
   }
   return result;

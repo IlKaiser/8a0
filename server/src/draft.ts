@@ -1,5 +1,5 @@
 import type { Player, Position, Slot, SquadRoll } from '@otto/shared';
-import { effectiveRating, slotAccepts } from '@otto/shared';
+import { slotAccepts } from '@otto/shared';
 import type { Squad } from './data.js';
 
 /** Full pick sequence: 1..N then N..1, repeated for `rounds` rounds. */
@@ -47,16 +47,17 @@ export function rollSquad(
   return fallback;
 }
 
-/** Highest effective rating among eligible players; natural slot preferred. */
+/** Highest-rated player whose exact position still has an open slot. */
 export function autoPick(
   players: Player[],
   slots: Slot[],
 ): { playerId: string; slotIndex: number } | null {
   let best: { playerId: string; slotIndex: number; score: number } | null = null;
   for (const p of players) {
-    for (const i of eligibleSlotIndices(slots, p.position)) {
-      const score = effectiveRating(p.rating, p.position, slots[i].position);
-      if (!best || score > best.score) best = { playerId: p.id, slotIndex: i, score };
+    const [slotIndex] = eligibleSlotIndices(slots, p.position);
+    if (slotIndex === undefined) continue;
+    if (!best || p.rating > best.score) {
+      best = { playerId: p.id, slotIndex, score: p.rating };
     }
   }
   return best ? { playerId: best.playerId, slotIndex: best.slotIndex } : null;

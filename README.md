@@ -18,15 +18,17 @@ adds multiplayer rooms, exclusive draft picks, and head-to-head simulation.
    (off / 30s / 60s). 2–8 players.
 3. **Formations** — each player picks one of 8 formations (4-3-3, 4-4-2, …).
 4. **Draft** — snake order. On your turn a dice rolls a random national team
-   from a World Cup edition; you pick one player to fill a slot. Picks are
-   **exclusive**: a drafted player is gone for everyone. You get 3 wildcards
-   to reroll, ineligible squads reroll free, and the timer auto-picks for AFK
-   players.
+   from a World Cup edition; you pick one player to fill a slot **of his exact
+   position** (no striker in midfield). Picks are **exclusive**: a drafted
+   player is gone for everyone. You get 3 wildcards to reroll, ineligible
+   squads reroll free, and the timer auto-picks for AFK players.
 5. **Tournament** — with 2 players it's a single grand final; with 3–8 it's a
-   full round robin followed by a final between the top two. Match results
-   come from a seeded simulation of squad quality, formation balance, and
-   positional strength (Poisson goals; penalty shootouts settle a level
-   final). Matches reveal one by one so the room watches together.
+   full round robin followed by a final between the top two. Every match plays
+   out **live**: the clock ticks through 90 minutes (~20 seconds real time)
+   and goals drop in with the minute and the scorer's name. A match level
+   after 90' goes straight to a **penalty shootout** — there are no draws, and
+   a shootout win counts as a win in the standings. Results come from a seeded
+   simulation of squad quality and positional strength (Poisson goals).
 6. **Results** — standings, every scoreline, all lineups, a copyable share
    card, and a one-click rematch.
 

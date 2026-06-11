@@ -11,10 +11,12 @@ import { computeStandings, roundRobinFixtures } from './tournament.js';
 export interface GameDeps {
   squads: Squad[];
   broadcast: (room: Room) => void;
-  revealMs?: number; // tournament reveal cadence (tests use a small value)
+  playMs?: number; // wall-clock length of one 90' live playback
+  gapMs?: number; // pause between matches
 }
 
-const DEFAULT_REVEAL_MS = 2500;
+const DEFAULT_PLAY_MS = 20_000;
+const DEFAULT_GAP_MS = 2_500;
 
 function seatOf(room: Room, seatId: string): Seat {
   const seat = room.seats.find((s) => s.id === seatId);
@@ -175,33 +177,46 @@ function startTournament(room: Room, deps: GameDeps): void {
     homeSeatId: finalists[0], awaySeatId: finalists[1], isFinal: true, seed: seed(),
   }));
 
+  const playMs = deps.playMs ?? DEFAULT_PLAY_MS;
   const t: TournamentPhaseState = {
-    matches, revealedCount: 0, championSeatId: null, timer: null,
+    matches, revealedCount: 0, playingIndex: null, playStartedAt: null,
+    playDurationMs: playMs, championSeatId: null, timer: null,
   };
   room.tournament = t;
-  deps.broadcast(room);
 
-  t.timer = setInterval(() => {
-    t.revealedCount++;
-    if (t.revealedCount >= t.matches.length) {
-      if (t.timer) clearInterval(t.timer);
-      t.timer = null;
-      const final = t.matches[t.matches.length - 1];
-      const homeWon = final.penalties
-        ? final.penalties.home > final.penalties.away
-        : final.homeGoals > final.awayGoals;
-      t.championSeatId = homeWon ? final.homeSeatId : final.awaySeatId;
-      room.phase = 'results';
-    }
+  // Play matches one at a time: live playback for playMs, short gap, next.
+  const playNext = (): void => {
+    t.playingIndex = t.revealedCount;
+    t.playStartedAt = Date.now();
     room.lastActivity = Date.now();
     deps.broadcast(room);
-  }, deps.revealMs ?? DEFAULT_REVEAL_MS);
+    t.timer = setTimeout(() => {
+      t.playingIndex = null;
+      t.playStartedAt = null;
+      t.revealedCount++;
+      room.lastActivity = Date.now();
+      if (t.revealedCount >= t.matches.length) {
+        t.timer = null;
+        const final = t.matches[t.matches.length - 1];
+        const homeWon = final.penalties
+          ? final.penalties.home > final.penalties.away
+          : final.homeGoals > final.awayGoals;
+        t.championSeatId = homeWon ? final.homeSeatId : final.awaySeatId;
+        room.phase = 'results';
+        deps.broadcast(room);
+      } else {
+        deps.broadcast(room);
+        t.timer = setTimeout(playNext, deps.gapMs ?? DEFAULT_GAP_MS);
+      }
+    }, playMs);
+  };
+  playNext();
 }
 
 export function rematch(room: Room, seatId: string, deps: GameDeps): void {
   requireHost(room, seatId);
   if (room.phase !== 'results') throw new Error('no finished game to rematch');
-  if (room.tournament?.timer) clearInterval(room.tournament.timer);
+  if (room.tournament?.timer) clearTimeout(room.tournament.timer);
   for (const s of room.seats) {
     s.formation = null;
     s.slots = [];

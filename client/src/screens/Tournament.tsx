@@ -1,13 +1,64 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { MatchResult, RoomSnapshot } from '@otto/shared';
 import Pitch from '../components/Pitch';
 import Standings from '../components/Standings';
 import type { RoomApi } from '../useRoom';
 
+/** Match minute (0..90) derived from the server's playback start time. */
+function useMatchClock(startedAt: number | null, durationMs: number): number {
+  const [, force] = useState(0);
+  useEffect(() => {
+    if (startedAt === null) return;
+    const t = window.setInterval(() => force((x) => x + 1), 200);
+    return () => window.clearInterval(t);
+  }, [startedAt]);
+  if (startedAt === null) return 0;
+  return Math.min(90, Math.floor(((Date.now() - startedAt) / durationMs) * 90));
+}
+
+interface LiveMatchProps {
+  match: MatchResult;
+  minute: number;
+  nameOf: (seatId: string) => string;
+}
+
+function LiveMatch({ match, minute, nameOf }: LiveMatchProps) {
+  const seen = match.events.filter((e) => e.minute <= minute);
+  const hg = seen.filter((e) => e.seatId === match.homeSeatId).length;
+  const ag = seen.filter((e) => e.seatId === match.awaySeatId).length;
+  const fullTime = minute >= 90;
+  return (
+    <section className="live-match" data-testid="live-match">
+      <header className="live-head">
+        {match.isFinal && <span className="final-tag">FINAL</span>}
+        <span className="live-minute">{fullTime ? 'FT' : `${minute}′`}</span>
+      </header>
+      <div className="live-score">
+        <span className="team">{nameOf(match.homeSeatId)}</span>
+        <span className="score">{hg} – {ag}</span>
+        <span className="team">{nameOf(match.awaySeatId)}</span>
+      </div>
+      <ol className="goal-feed">
+        {seen.map((e, i) => (
+          <li key={i}>
+            ⚽ {e.minute}′ <strong>{e.scorerName}</strong> <em>({nameOf(e.seatId)})</em>
+          </li>
+        ))}
+      </ol>
+      {fullTime && match.penalties && (
+        <p className="pens">
+          Penalty shootout: {match.penalties.home} – {match.penalties.away}
+        </p>
+      )}
+    </section>
+  );
+}
+
 export default function Tournament({ api, snap }: { api: RoomApi; snap: RoomSnapshot }) {
   const [copied, setCopied] = useState(false);
   const t = snap.tournament;
   const me = snap.seats.find((s) => s.id === api.seatId);
+  const minute = useMatchClock(t?.playStartedAt ?? null, t?.playDurationMs ?? 1);
   if (!t) return null;
 
   const name = (id: string): string =>
@@ -19,11 +70,16 @@ export default function Tournament({ api, snap }: { api: RoomApi; snap: RoomSnap
     `${name(m.homeSeatId)} ${m.homeGoals}–${m.awayGoals} ${name(m.awaySeatId)}` +
     (m.penalties ? ` (${m.penalties.home}–${m.penalties.away} pens)` : '');
 
+  const scorers = (m: MatchResult): string =>
+    m.events.map((e) => `${e.minute}′ ${e.scorerName}`).join(', ');
+
   const copyShareCard = (): void => {
     const lines = [
       `🏆 Otto a Zero — room ${snap.code}`,
-      `Champion: ${champion ?? '?'}`,
-      ...t.revealed.map((m) => (m.isFinal ? `FINAL · ${scoreline(m)}` : scoreline(m))),
+      `Tua è la coppa, ${champion ?? '?'}!`,
+      ...t.revealed.map((m) =>
+        (m.isFinal ? `FINAL · ${scoreline(m)}` : scoreline(m)) +
+        (m.events.length ? ` — ${scorers(m)}` : '')),
     ];
     void navigator.clipboard.writeText(lines.join('\n')).then(() => {
       setCopied(true);
@@ -33,20 +89,20 @@ export default function Tournament({ api, snap }: { api: RoomApi; snap: RoomSnap
 
   return (
     <main className="tournament">
-      <h2>{done ? 'Final results' : 'Tournament in progress…'}</h2>
+      <h2>{done ? 'Final results' : 'Matchday'}</h2>
       {champion && (
-        <p className="champion" data-testid="champion">🏆 {champion} wins the room!</p>
+        <p className="champion" data-testid="champion">🏆 Tua è la coppa, {champion}!</p>
       )}
+      {t.playing && <LiveMatch match={t.playing} minute={minute} nameOf={name} />}
       <section className="matches">
         {t.revealed.map((m, i) => (
-          <p key={i} className={`match ${m.isFinal ? 'final-match' : ''}`}>
-            {m.isFinal && <strong>FINAL · </strong>}{scoreline(m)}
-          </p>
+          <div key={i} className={`match ${m.isFinal ? 'final-match' : ''}`}>
+            <p>{m.isFinal && <strong>FINAL · </strong>}{scoreline(m)}</p>
+            {m.events.length > 0 && <p className="scorers">⚽ {scorers(m)}</p>}
+          </div>
         ))}
-        {!done && (
-          <p className="hint">
-            Revealing matches… {t.revealed.length}/{t.totalMatches}
-          </p>
+        {!done && !t.playing && t.revealed.length < t.totalMatches && (
+          <p className="hint">Next match coming up… ({t.revealed.length}/{t.totalMatches})</p>
         )}
       </section>
       {snap.seats.length > 2 && <Standings rows={t.standings} nameOf={name} />}
