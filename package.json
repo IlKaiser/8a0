@@ -2,15 +2,21 @@
   "name": "otto-a-zero",
   "private": true,
   "type": "module",
-  "workspaces": ["shared", "server", "client"],
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
   "scripts": {
     "dev": "concurrently -n server,client \"npm -w @otto/server run dev\" \"npm -w @otto/client run dev\"",
     "build": "npm -w @otto/client run build",
     "start": "npm -w @otto/server run start",
     "test": "vitest run",
-    "typecheck": "tsc -p shared && tsc -p server && tsc -p client"
+    "typecheck": "tsc -p shared && tsc -p server && tsc -p client",
+    "e2e": "playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@types/node": "^20.14.0",
     "concurrently": "^8.2.2",
     "tsx": "^4.16.0",

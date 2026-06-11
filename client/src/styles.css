@@ -167,7 +167,8 @@ fieldset { border: 1px solid var(--line); border-radius: var(--radius); margin: 
 .standings td:first-child, .standings th:first-child { text-align: left; }
 
 .lineups {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 14px; margin: 18px 0;
 }
+.lineups .pitch .slot { min-width: 72px; }
 .results-actions { display: flex; gap: 10px; margin-top: 12px; }

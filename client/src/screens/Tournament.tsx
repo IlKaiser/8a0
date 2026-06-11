@@ -56,7 +56,7 @@ export default function Tournament({ api, snap }: { api: RoomApi; snap: RoomSnap
             {snap.seats.map((s) => (
               <div key={s.id}>
                 <h4>{s.nickname} · {s.formation}</h4>
-                <Pitch slots={s.slots} compact />
+                <Pitch slots={s.slots} />
               </div>
             ))}
           </section>
