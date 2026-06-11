@@ -1,4 +1,4 @@
-import type { GameMode, RoomSnapshot } from '@otto/shared';
+import type { DraftMode, GameMode, RoomSnapshot } from '@otto/shared';
 import type { RoomApi } from '../useRoom';
 
 export default function Lobby({ api, snap }: { api: RoomApi; snap: RoomSnapshot }) {
@@ -27,6 +27,14 @@ export default function Lobby({ api, snap }: { api: RoomApi; snap: RoomSnapshot 
             onChange={(e) => api.setOptions({ mode: e.target.value as GameMode })}>
             <option value="classic">Classic — ratings visible</option>
             <option value="memory">From memory — ratings hidden</option>
+          </select>
+        </label>
+        <label>
+          Draft style
+          <select data-testid="draft-mode" value={snap.draftMode}
+            onChange={(e) => api.setOptions({ draftMode: e.target.value as DraftMode })}>
+            <option value="free">Free pick — choose any role you still need</option>
+            <option value="blind">Blind draft — a random role is imposed each turn</option>
           </select>
         </label>
         <label>

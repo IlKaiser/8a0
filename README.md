@@ -14,8 +14,10 @@ adds multiplayer rooms, exclusive draft picks, and head-to-head simulation.
    a nickname. No accounts, no signup; rooms live in memory and expire after
    ~2 hours of inactivity.
 2. **Lobby** — the host picks the mode (*Classic* shows player ratings,
-   *From Memory* hides them until the tournament) and the turn timer
-   (off / 30s / 60s). 2–8 players.
+   *From Memory* hides them until the tournament), the draft style (*Free
+   pick*, or *Blind draft* where each turn a random still-open role is imposed
+   and you may only pick that role), and the turn timer (off / 30s / 60s).
+   2–8 players.
 3. **Formations** — each player picks one of 8 formations (4-3-3, 4-4-2, …).
 4. **Draft** — snake order. On your turn a dice rolls a random national team
    from a World Cup edition; you pick one player to fill a slot **of his exact

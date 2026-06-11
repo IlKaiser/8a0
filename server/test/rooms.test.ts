@@ -58,7 +58,7 @@ describe('snapshot sanitization', () => {
     seat.slots = FORMATIONS['4-4-2'].map((position) => ({ position, player: null }));
     seat.slots[5].player = P('m1', 91);
     room.draft = {
-      order: [seat.id], pickNumber: 0, draftedPersons: new Set(),
+      order: [seat.id], pickNumber: 0, requiredPosition: null, draftedPersons: new Set(),
       roll: { year: 2022, country: 'X', players: [P('m2', 88)] },
       deadline: null, log: [], timer: null,
     };

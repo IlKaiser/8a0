@@ -5,6 +5,10 @@ import Pitch from '../components/Pitch';
 import SquadCard from '../components/SquadCard';
 import type { RoomApi } from '../useRoom';
 
+const ROLE_NAMES: Record<Position, string> = {
+  GK: 'GOALKEEPER', DF: 'DEFENDER', MF: 'MIDFIELDER', FW: 'FORWARD',
+};
+
 function Countdown({ deadline }: { deadline: number }) {
   const [left, setLeft] = useState(deadline - Date.now());
   useEffect(() => {
@@ -26,9 +30,12 @@ export default function Draft({ api, snap }: { api: RoomApi; snap: RoomSnapshot 
   const myTurn = draft.currentSeatId === api.seatId;
   const selected = draft.roll?.players.find((p) => p.id === selectedId) ?? null;
 
+  const required = draft.requiredPosition;
   const eligibleSlots = (pos: Position): number[] =>
     me.slots.flatMap((slot, i) =>
       !slot.player && slotAccepts(slot.position, pos) ? [i] : []);
+  const pickable = (pos: Position): boolean =>
+    eligibleSlots(pos).length > 0 && (required === null || pos === required);
 
   return (
     <main className="draft">
@@ -47,10 +54,18 @@ export default function Draft({ api, snap }: { api: RoomApi; snap: RoomSnapshot 
         </button>
       </header>
 
+      {required && (
+        <p className="required-role" data-testid="required-role">
+          🎯 {myTurn
+            ? `Blind draft: you must pick a ${ROLE_NAMES[required]}`
+            : `${current?.nickname ?? '…'} must pick a ${ROLE_NAMES[required]}`}
+        </p>
+      )}
+
       <div className="draft-main">
         {draft.roll && (
           <SquadCard roll={draft.roll} canPick={myTurn}
-            hasEligibleSlot={(pos) => eligibleSlots(pos).length > 0}
+            hasEligibleSlot={pickable}
             selectedId={selectedId} onSelect={setSelectedId} />
         )}
         <section className="my-team">

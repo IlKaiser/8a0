@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import type { FormationId, GameMode, JoinAck, RoomSnapshot } from '@otto/shared';
+import type { DraftMode, FormationId, GameMode, JoinAck, RoomSnapshot } from '@otto/shared';
 import { socket } from './socket';
 
 interface Session { code: string; seatId: string; token: string }
@@ -21,7 +21,11 @@ export interface RoomApi {
   createRoom: (nickname: string) => void;
   joinRoom: (code: string, nickname: string) => void;
   leave: () => void;
-  setOptions: (opts: { mode?: GameMode; turnTimerSec?: number }) => void;
+  setOptions: (opts: {
+    mode?: GameMode;
+    draftMode?: DraftMode;
+    turnTimerSec?: number;
+  }) => void;
   start: () => void;
   chooseFormation: (formation: FormationId) => void;
   pick: (playerId: string, slotIndex: number) => void;

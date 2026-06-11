@@ -37,12 +37,15 @@ export function personKey(p: Player): string {
  * Roll a random squad that still contains at least one undrafted player
  * eligible for the active seat's open slots (the spec's free auto-reroll).
  * A drafted person is excluded across all editions, not just their card.
+ * In blind draft `requiredPos` further constrains the roll to squads that
+ * still hold an undrafted player of that role.
  */
 export function rollSquad(
   squads: Squad[],
   draftedPersons: Set<string>,
   slots: Slot[],
   rng: () => number,
+  requiredPos?: Position,
 ): SquadRoll {
   let fallback: SquadRoll | null = null;
   for (let tries = 0; tries < MAX_ROLL_TRIES; tries++) {
@@ -50,7 +53,10 @@ export function rollSquad(
     const players = squad.players.filter((p) => !draftedPersons.has(personKey(p)));
     if (players.length === 0) continue;
     fallback = { year: squad.year, country: squad.country, players };
-    if (squadHasEligible(players, slots)) return fallback;
+    const satisfies = requiredPos
+      ? players.some((p) => p.position === requiredPos)
+      : squadHasEligible(players, slots);
+    if (satisfies) return fallback;
   }
   if (!fallback) throw new Error('player pool exhausted');
   return fallback;

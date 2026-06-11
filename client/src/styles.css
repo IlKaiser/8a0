@@ -240,3 +240,11 @@ fieldset { border: 1px solid var(--line); border-radius: var(--radius); margin: 
   60% { transform: scale(1.35); }
 }
 .pen-score { text-align: right; font-weight: 800; color: var(--accent); }
+
+.required-role {
+  grid-column: 1 / -1; justify-self: start;
+  margin: 0; padding: 10px 16px; display: inline-block;
+  background: var(--bg-card); border: 1px dashed var(--accent-2);
+  border-radius: var(--radius); color: var(--accent-2); font-weight: 700;
+  animation: slide-in 0.3s ease;
+}

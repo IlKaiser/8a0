@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import type {
-  FormationId, GameMode, MatchResult, Phase, PickLogEntry, Player,
-  RoomSnapshot, SeatView, Slot, SquadRoll,
+  DraftMode, FormationId, GameMode, MatchResult, Phase, PickLogEntry, Player,
+  Position, RoomSnapshot, SeatView, Slot, SquadRoll,
 } from '@otto/shared';
 import { MAX_SEATS, WILDCARDS_PER_PLAYER } from '@otto/shared';
 import { mulberry32 } from './simulate.js';
@@ -21,6 +21,7 @@ export interface Seat {
 export interface DraftPhaseState {
   order: string[];
   pickNumber: number;
+  requiredPosition: Position | null; // blind draft: imposed role for this turn
   draftedPersons: Set<string>; // personKey() of every drafted player
   roll: SquadRoll | null;
   deadline: number | null;
@@ -43,6 +44,7 @@ export interface Room {
   code: string;
   phase: Phase;
   mode: GameMode;
+  draftMode: DraftMode;
   turnTimerSec: number;
   seats: Seat[];
   draft: DraftPhaseState | null;
@@ -79,7 +81,7 @@ export function createRoom(
   while (rooms.has(code)) code = generateCode();
   const seat = makeSeat(nickname, true);
   const room: Room = {
-    code, phase: 'lobby', mode: 'classic', turnTimerSec: 60,
+    code, phase: 'lobby', mode: 'classic', draftMode: 'free', turnTimerSec: 60,
     seats: [seat], draft: null, tournament: null,
     rng: mulberry32(seed), lastActivity: Date.now(),
   };
@@ -152,6 +154,7 @@ export function snapshot(room: Room): RoomSnapshot {
     code: room.code,
     phase: room.phase,
     mode: room.mode,
+    draftMode: room.draftMode,
     turnTimerSec: room.turnTimerSec,
     seats,
     draft: d && room.phase === 'draft'
@@ -159,6 +162,7 @@ export function snapshot(room: Room): RoomSnapshot {
           currentSeatId: d.order[d.pickNumber] ?? null,
           pickNumber: d.pickNumber,
           totalPicks: d.order.length,
+          requiredPosition: d.requiredPosition,
           roll: d.roll && hidden
             ? { ...d.roll, players: d.roll.players.map(hidePlayer) }
             : d.roll,

@@ -3,6 +3,7 @@ export const APP_NAME = 'Otto a Zero';
 // ---------- Domain primitives ----------
 export type Position = 'GK' | 'DF' | 'MF' | 'FW';
 export type GameMode = 'classic' | 'memory';
+export type DraftMode = 'free' | 'blind'; // blind: a random open role is imposed each turn
 export type Phase = 'lobby' | 'formation' | 'draft' | 'tournament' | 'results';
 
 export interface Player {
@@ -117,6 +118,7 @@ export interface DraftView {
   currentSeatId: string | null;
   pickNumber: number; // 0-based
   totalPicks: number;
+  requiredPosition: Position | null; // blind draft: only this role is pickable
   roll: SquadRoll | null;
   deadline: number | null; // epoch ms, null when timer off
   log: PickLogEntry[];
@@ -171,6 +173,7 @@ export interface RoomSnapshot {
   code: string;
   phase: Phase;
   mode: GameMode;
+  draftMode: DraftMode;
   turnTimerSec: number;
   seats: SeatView[];
   draft: DraftView | null;
@@ -193,7 +196,11 @@ export interface ClientToServerEvents {
     p: { code: string; nickname: string; token?: string },
     ack: (r: JoinAck) => void,
   ) => void;
-  'room:options': (p: { mode?: GameMode; turnTimerSec?: number }) => void;
+  'room:options': (p: {
+    mode?: GameMode;
+    draftMode?: DraftMode;
+    turnTimerSec?: number;
+  }) => void;
   'room:start': () => void;
   'formation:choose': (p: { formation: FormationId }) => void;
   'draft:pick': (p: { playerId: string; slotIndex: number }) => void;

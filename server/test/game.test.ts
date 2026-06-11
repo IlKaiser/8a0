@@ -149,6 +149,42 @@ describe('game flow', () => {
     expect(room.tournament!.championSeatId).toBe(clincher);
   });
 
+  it('blind draft imposes a random open role and rejects other positions', () => {
+    const deps = depsWith();
+    const { room, seat: host } = createRoom('eve', 77);
+    const fred = joinRoom(room, 'fred');
+    game.setOptions(room, host.id, { draftMode: 'blind', turnTimerSec: 0 });
+    game.startGame(room, host.id);
+    game.chooseFormation(room, host.id, '4-4-2', deps);
+    game.chooseFormation(room, fred.id, '4-3-3', deps);
+    expect(room.phase).toBe('draft');
+
+    let guard = 0;
+    while (room.phase === 'draft' && guard++ < 30) {
+      const d = room.draft!;
+      const required = d.requiredPosition!;
+      expect(required).toBeTruthy();
+      const seat = room.seats.find((s) => s.id === d.order[d.pickNumber])!;
+      // the imposed role is one of the seat's open positions
+      expect(seat.slots.some((s) => !s.player && s.position === required)).toBe(true);
+      // the rolled squad always offers at least one player of that role
+      const legal = d.roll!.players.filter((p) => p.position === required);
+      expect(legal.length).toBeGreaterThan(0);
+      // picking any other position is rejected
+      const wrong = d.roll!.players.find((p) => p.position !== required);
+      if (wrong) {
+        expect(() =>
+          game.handlePick(room, seat.id, wrong.id, 0, deps),
+        ).toThrow(/blind draft|not eligible/);
+      }
+      const pick = autoPick(legal, seat.slots)!;
+      game.handlePick(room, seat.id, pick.playerId, pick.slotIndex, deps);
+    }
+    expect(room.phase).toBe('tournament');
+    expect(room.seats.every((s) => s.slots.every((sl) =>
+      sl.player !== null && sl.player.position === sl.position))).toBe(true);
+  });
+
   it('rematch resets to formation phase with full wildcards and empty boards', () => {
     const deps = depsWith();
     const { room, host } = setupDraft(deps);

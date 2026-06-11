@@ -1,4 +1,4 @@
-import type { FormationId, GameMode, MatchResult } from '@otto/shared';
+import type { DraftMode, FormationId, GameMode, MatchResult, Position } from '@otto/shared';
 import {
   FORMATIONS, MIN_SEATS, TEAM_SIZE, TURN_TIMER_CHOICES, WILDCARDS_PER_PLAYER,
   penaltyExtraMs,
@@ -34,11 +34,17 @@ function requireHost(room: Room, seatId: string): Seat {
 export function setOptions(
   room: Room,
   seatId: string,
-  opts: { mode?: GameMode; turnTimerSec?: number },
+  opts: { mode?: GameMode; draftMode?: DraftMode; turnTimerSec?: number },
 ): void {
   requireHost(room, seatId);
   if (room.phase !== 'lobby') throw new Error('options are locked after start');
   if (opts.mode) room.mode = opts.mode;
+  if (opts.draftMode) {
+    if (opts.draftMode !== 'free' && opts.draftMode !== 'blind') {
+      throw new Error('invalid draft mode');
+    }
+    room.draftMode = opts.draftMode;
+  }
   if (opts.turnTimerSec !== undefined) {
     if (!(TURN_TIMER_CHOICES as readonly number[]).includes(opts.turnTimerSec)) {
       throw new Error('invalid turn timer');
@@ -82,6 +88,7 @@ function beginDraft(room: Room, deps: GameDeps): void {
   room.draft = {
     order: snakeOrder(shuffled(room.seats.map((s) => s.id), room.rng), TEAM_SIZE),
     pickNumber: 0,
+    requiredPosition: null,
     draftedPersons: new Set(),
     roll: null,
     deadline: null,
@@ -91,15 +98,29 @@ function beginDraft(room: Room, deps: GameDeps): void {
   startTurn(room, deps);
 }
 
+/** Blind draft: impose a random open role, weighted by its open slot count. */
+function pickRequiredPosition(seat: Seat, rng: () => number): Position {
+  const open = seat.slots.filter((s) => s.player === null).map((s) => s.position);
+  return open[Math.floor(rng() * open.length)];
+}
+
 function startTurn(room: Room, deps: GameDeps): void {
   const d = room.draft;
   if (!d) return;
   const seat = seatOf(room, d.order[d.pickNumber]);
-  d.roll = rollSquad(deps.squads, d.draftedPersons, seat.slots, room.rng);
+  d.requiredPosition =
+    room.draftMode === 'blind' ? pickRequiredPosition(seat, room.rng) : null;
+  d.roll = rollSquad(
+    deps.squads, d.draftedPersons, seat.slots, room.rng,
+    d.requiredPosition ?? undefined,
+  );
   if (room.turnTimerSec > 0) {
     d.deadline = Date.now() + room.turnTimerSec * 1000;
     d.timer = setTimeout(() => {
-      const pick = autoPick(d.roll?.players ?? [], seat.slots);
+      const candidates = (d.roll?.players ?? []).filter(
+        (p) => d.requiredPosition === null || p.position === d.requiredPosition,
+      );
+      const pick = autoPick(candidates, seat.slots);
       if (pick) applyPick(room, seat.id, pick.playerId, pick.slotIndex, true, deps);
     }, room.turnTimerSec * 1000);
   } else {
@@ -132,6 +153,9 @@ function applyPick(
   const seat = seatOf(room, seatId);
   const player = d.roll?.players.find((p) => p.id === playerId);
   if (!player) throw new Error('player not in the rolled squad');
+  if (d.requiredPosition !== null && player.position !== d.requiredPosition) {
+    throw new Error(`blind draft: you must pick a ${d.requiredPosition}`);
+  }
   if (!eligibleSlotIndices(seat.slots, player.position).includes(slotIndex)) {
     throw new Error('slot not eligible for this player');
   }
