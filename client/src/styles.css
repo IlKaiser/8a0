@@ -1,0 +1,59 @@
+:root {
+  --bg: #0b1f12;
+  --bg-card: #12301c;
+  --line: #1f4a2c;
+  --text: #eaf5ec;
+  --text-dim: #9dbfa6;
+  --accent: #ffd34d;        /* trophy gold */
+  --accent-2: #4dd17a;      /* pitch green */
+  --danger: #ff6b6b;
+  --radius: 10px;
+  font-family: 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, #1b4427 0%, var(--bg) 60%);
+  color: var(--text);
+  min-height: 100vh;
+}
+.app { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+
+h1 { font-size: 2.6rem; letter-spacing: 0.02em; margin: 0.4em 0 0.1em; }
+h1, h2 { text-transform: uppercase; }
+.tagline { color: var(--text-dim); margin-top: 0; }
+
+button {
+  background: var(--accent);
+  border: none; color: #221a00; font-weight: 700;
+  padding: 10px 18px; border-radius: var(--radius); cursor: pointer;
+  transition: transform 0.06s ease, filter 0.15s ease;
+}
+button:hover:enabled { filter: brightness(1.08); transform: translateY(-1px); }
+button:disabled { background: #3a4a3e; color: #79857c; cursor: not-allowed; }
+
+input, select {
+  background: var(--bg-card); color: var(--text);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 12px; font-size: 1rem;
+}
+label { display: flex; flex-direction: column; gap: 6px; margin: 12px 0; }
+
+.toast {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  background: var(--danger); color: #fff; padding: 10px 20px;
+  border-radius: var(--radius); z-index: 10;
+}
+
+.home { max-width: 420px; margin: 10vh auto 0; }
+.home-actions { display: flex; flex-direction: column; gap: 12px; }
+.join-row { display: flex; gap: 8px; }
+.join-row input { width: 110px; text-transform: uppercase; letter-spacing: 0.2em; }
+
+.code {
+  background: var(--bg-card); border: 1px dashed var(--accent);
+  padding: 2px 12px; border-radius: 6px; letter-spacing: 0.25em;
+  color: var(--accent);
+}
