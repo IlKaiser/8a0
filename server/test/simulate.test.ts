@@ -58,6 +58,34 @@ describe('simulateMatch', () => {
     expect(weakWins).toBeLessThan(60);       // upsets exist but are rare
   });
 
+  it('a moderate rating edge (88 vs 81) wins a clear majority', () => {
+    let strongWins = 0;
+    for (let seed = 1000; seed < 1400; seed++) {
+      const r = simulateMatch(team(88), team(81), { homeSeatId: 'h', awaySeatId: 'a', isFinal: false, seed });
+      const homeWon = r.penalties
+        ? r.penalties.home > r.penalties.away
+        : r.homeGoals > r.awayGoals;
+      if (homeWon) strongWins++;
+    }
+    expect(strongWins).toBeGreaterThan(240); // >60% incl. shootouts
+  });
+
+  it('equal teams split results across seeds (rng matters)', () => {
+    let homeWins = 0; let awayWins = 0;
+    const scorelines = new Set<string>();
+    for (let seed = 0; seed < 200; seed++) {
+      const r = simulateMatch(team(85), team(85), { homeSeatId: 'h', awaySeatId: 'a', isFinal: false, seed });
+      scorelines.add(`${r.homeGoals}-${r.awayGoals}`);
+      const homeWon = r.penalties
+        ? r.penalties.home > r.penalties.away
+        : r.homeGoals > r.awayGoals;
+      if (homeWon) homeWins++; else awayWins++;
+    }
+    expect(homeWins).toBeGreaterThan(40);
+    expect(awayWins).toBeGreaterThan(40);
+    expect(scorelines.size).toBeGreaterThan(8); // plenty of distinct results
+  });
+
   it('no match ends level: penalties decide every drawn match', () => {
     for (let seed = 0; seed < 200; seed++) {
       const r = simulateMatch(team(85), team(85), { homeSeatId: 'h', awaySeatId: 'a', isFinal: false, seed });

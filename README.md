@@ -28,7 +28,9 @@ adds multiplayer rooms, exclusive draft picks, and head-to-head simulation.
    and goals drop in with the minute and the scorer's name. A match level
    after 90' goes straight to a **penalty shootout** — there are no draws, and
    a shootout win counts as a win in the standings. Results come from a seeded
-   simulation of squad quality and positional strength (Poisson goals).
+   simulation of squad quality and positional strength (Poisson goals), plus a
+   random matchday form swing — better squads win clearly more often (a 7-point
+   rating edge wins ~80% of matches), but upsets stay on the table.
 6. **Results** — standings, every scoreline with scorers, all lineups, and a
    copyable share card. The host can then **replay with the same teams**,
    settle it with a **best-of-7 series** between the finalists (first to 4

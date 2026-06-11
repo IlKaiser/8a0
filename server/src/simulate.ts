@@ -39,11 +39,16 @@ export function teamScores(slots: Slot[]): TeamScores {
 }
 
 const BASE_GOALS = 1.35;
-const GOALS_PER_RATING_DIFF = 0.06;
+// Steep enough that a few rating points of squad quality clearly matter:
+// a 5-point edge is ~+0.55 xg for you and ~-0.55 against.
+const GOALS_PER_RATING_DIFF = 0.11;
+// Matchday form: every team wakes up a few rating points better or worse,
+// so even identical squads produce different games (and upsets happen).
+const FORM_SPREAD = 3;
 
 export function expectedGoals(attack: number, defense: number): number {
   const xg = BASE_GOALS + GOALS_PER_RATING_DIFF * (attack - defense);
-  return Math.min(3.5, Math.max(0.3, xg));
+  return Math.min(4, Math.max(0.25, xg));
 }
 
 function bestKickers(slots: Slot[]): number[] {
@@ -120,8 +125,12 @@ export interface MatchOptions {
 export function simulateMatch(home: Slot[], away: Slot[], opts: MatchOptions): MatchResult {
   const rng = mulberry32(opts.seed);
   const hs = teamScores(home); const as = teamScores(away);
-  const homeGoals = poisson(expectedGoals(hs.attack, as.defense), rng);
-  const awayGoals = poisson(expectedGoals(as.attack, hs.defense), rng);
+  const homeForm = (rng() * 2 - 1) * FORM_SPREAD;
+  const awayForm = (rng() * 2 - 1) * FORM_SPREAD;
+  const homeGoals = poisson(
+    expectedGoals(hs.attack + homeForm, as.defense + awayForm), rng);
+  const awayGoals = poisson(
+    expectedGoals(as.attack + awayForm, hs.defense + homeForm), rng);
   const events = [
     ...goalEvents(home, opts.homeSeatId, homeGoals, rng),
     ...goalEvents(away, opts.awaySeatId, awayGoals, rng),
